@@ -54,31 +54,31 @@ const Navbar: React.FC = () => {
             </div>
             
             {/* Navigation links centered */}
-            <div className="hidden md:flex space-x-10 items-center text-sm font-montreal">
+            <div className="hidden md:flex space-x-10 items-center text-sm font-inter font-bold justify-center mx-auto">
               <button 
                 onClick={() => scrollToSection('purpose')} 
-                className="font-medium text-qarawin-cream hover:text-qarawin-red transition-colors relative group"
+                className="font-bold text-qarawin-cream hover:text-qarawin-red transition-colors relative group"
               >
                 Purpose
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-qarawin-red transition-all duration-300 group-hover:w-full"></span>
               </button>
               <button 
                 onClick={() => scrollToSection('advisors')} 
-                className="font-medium text-qarawin-cream hover:text-qarawin-red transition-colors relative group"
+                className="font-bold text-qarawin-cream hover:text-qarawin-red transition-colors relative group"
               >
                 Advisors
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-qarawin-red transition-all duration-300 group-hover:w-full"></span>
               </button>
               <button 
                 onClick={() => scrollToSection('founders')} 
-                className="font-medium text-qarawin-cream hover:text-qarawin-red transition-colors relative group"
+                className="font-bold text-qarawin-cream hover:text-qarawin-red transition-colors relative group"
               >
                 Founders
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-qarawin-red transition-all duration-300 group-hover:w-full"></span>
               </button>
               <button 
                 onClick={() => scrollToSection('chapters')} 
-                className="font-medium text-qarawin-cream hover:text-qarawin-red transition-colors relative group"
+                className="font-bold text-qarawin-cream hover:text-qarawin-red transition-colors relative group"
               >
                 Chapters
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-qarawin-red transition-all duration-300 group-hover:w-full"></span>
@@ -111,7 +111,7 @@ const Navbar: React.FC = () => {
         <div className={`md:hidden bg-qarawin-darkgray/95 backdrop-blur-md transition-all duration-300 overflow-hidden ${
           isMobileMenuOpen ? 'max-h-screen border-b border-qarawin-red/20' : 'max-h-0'
         }`}>
-          <div className="container mx-auto px-6 py-4 space-y-4 font-montreal">
+          <div className="container mx-auto px-6 py-4 space-y-4 font-inter font-bold">
             <button 
               onClick={() => scrollToSection('purpose')}
               className="block w-full text-left py-2 text-qarawin-cream hover:text-qarawin-red transition-colors"
