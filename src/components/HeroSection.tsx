@@ -7,7 +7,7 @@ const HeroSection: React.FC = () => {
   const circleWhiteRef = useRef<HTMLDivElement>(null);
   
   const scrollToCommunity = () => {
-    document.getElementById('community')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('community-form')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const HeroSection: React.FC = () => {
       
       <div className="container mx-auto px-6 md:px-12 z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h1 className="text-5xl md:text-8xl lg:text-9xl font-inter font-bold leading-tight animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
+          <h1 className="text-5xl md:text-8xl lg:text-[12rem] font-inter font-bold leading-tight animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
             <span className="block text-qarawin-red tracking-tight mb-4">QARAWIN</span>
           </h1>
           

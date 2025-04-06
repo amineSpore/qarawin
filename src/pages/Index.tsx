@@ -6,6 +6,8 @@ import PurposeSection from '@/components/PurposeSection';
 import AdvisorsSection from '@/components/AdvisorsSection';
 import FoundersSection from '@/components/FoundersSection';
 import ChaptersSection from '@/components/ChaptersSection';
+import CommunityForm from '@/components/CommunityForm';
+import AdminPanel from '@/components/AdminPanel';
 import Footer from '@/components/Footer';
 
 const Index: React.FC = () => {
@@ -41,7 +43,9 @@ const Index: React.FC = () => {
         <AdvisorsSection />
         <FoundersSection />
         <ChaptersSection />
+        <CommunityForm />
       </main>
+      <AdminPanel />
       <Footer />
     </div>
   );
