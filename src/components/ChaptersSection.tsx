@@ -65,10 +65,8 @@ const ChaptersSection: React.FC = () => {
     {
       name: "Youssef Ezzaky",
       title1: "Asia",
-      title2: "Chapter Lead",
       initials: "YE",
-      image: "/lovable-uploads/de4ea23a-afbc-455c-84fc-bed1686e50b8.png"
-    }
+      image: null
   ];
 
   return (
