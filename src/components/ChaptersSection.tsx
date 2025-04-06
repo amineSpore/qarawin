@@ -41,30 +41,27 @@ const ChaptersSection: React.FC = () => {
     {
       name: "Rita Achour",
       title1: "USA",
-      title2: "Chapter Lead",
       initials: "RA",
-      image: "/lovable-uploads/fdc55033-853f-4141-92a4-e6a81598497f.png"
+      image: "/lovable-uploads/0ee6594c-646e-4838-b3a5-374dd3bb6b9c.png"
     },
     {
       name: "Ines Iraki",
       title1: "France",
-      title2: "Chapter Lead",
       initials: "II",
-      image: "/lovable-uploads/a7122724-bf9f-4a23-b794-730d79c705dd.png"
+      image: "/lovable-uploads/48a4e936-db30-4eef-b1a3-68e4112e85ce.png"
     },
     {
       name: "Jad Sbaï",
       title1: "UK",
-      title2: "Chapter Lead",
       initials: "JS",
-      image: "/lovable-uploads/4bd5f4aa-0316-4949-b14a-8eb002c55206.png"
+      image: "/lovable-uploads/c0c9954c-ebf2-48dc-854a-e3b63f675b59.png"
     },
     {
       name: "Salma Mouhib",
       title1: "Morocco",
       title2: "Chapter Lead",
       initials: "SM",
-      image: "/lovable-uploads/54d04da9-172e-45f1-8293-d228bdb332a6.png"
+      image: "/lovable-uploads/ad2f8e7d-7e13-4371-82bd-93a53032fb42.png"
     },
     {
       name: "Youssef Ezzaky",
