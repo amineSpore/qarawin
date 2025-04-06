@@ -1,5 +1,29 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* Neue Montreal font import (using a CSS font-face for a web font that's not in Google Fonts) */
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('/fonts/NeueMontreal-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('/fonts/NeueMontreal-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('/fonts/NeueMontreal-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -92,17 +116,17 @@
   }
 
   body {
-    @apply bg-qarawin-black text-qarawin-cream font-sans;
+    @apply bg-qarawin-black text-qarawin-cream font-montreal;
     scroll-behavior: smooth;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply font-inter font-bold;
   }
 }
 
 .pattern-divider {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='10' viewBox='0 0 60 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 5 L0 0 L10 0 Z M15 5 L10 0 L20 0 Z M25 5 L20 0 L30 0 Z M35 5 L30 0 L40 0 Z M45 5 L40 0 L50 0 Z M55 5 L50 0 L60 0 Z' fill='%23ea384c' fill-opacity='0.6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='10' viewBox='0 0 60 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 5 L0 0 L10 0 Z M15 5 L10 0 L20 0 Z M25 5 L20 0 L30 0 Z M35 5 L30 0 L40 0 Z M45 5 L40 0 L50 0 Z M55 5 L50 0 L60 0 Z' fill='%23ca0013' fill-opacity='0.6'/%3E%3C/svg%3E");
   background-repeat: repeat-x;
   height: 10px;
   width: 100%;
@@ -110,7 +134,7 @@
 
 .gradient-text {
   @apply bg-gradient-to-r from-qarawin-red via-qarawin-red to-qarawin-red/60 bg-clip-text text-transparent;
-  text-shadow: 0 0 40px rgba(234, 56, 76, 0.3);
+  text-shadow: 0 0 40px rgba(202, 0, 19, 0.3);
 }
 
 .arabesque-border {
@@ -128,7 +152,7 @@
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color: #ea384c;
+  background-color: #ca0013;
   opacity: 0.2;
 }
 
@@ -180,7 +204,7 @@
 
 .hover-lift:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px -5px rgba(234, 56, 76, 0.1);
+  box-shadow: 0 10px 25px -5px rgba(202, 0, 19, 0.1);
 }
 
 /* Special decorative element */
@@ -194,6 +218,70 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(234, 56, 76, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(circle, rgba(202, 0, 19, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
   z-index: -1;
+}
+
+/* Orbiting circles animation */
+@keyframes orbit-red {
+  0% {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes orbit-white {
+  0% {
+    transform: rotate(180deg) translateX(200px) rotate(-180deg);
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: rotate(540deg) translateX(200px) rotate(-540deg);
+    opacity: 0.6;
+  }
+}
+
+.circle-red {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(202, 0, 19, 0.9) 0%, rgba(202, 0, 19, 0) 70%);
+  animation: orbit-red 15s linear infinite;
+  mix-blend-mode: screen;
+}
+
+.circle-white {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: orbit-white 20s linear infinite;
+  mix-blend-mode: overlay;
+}
+
+/* Page transition animations */
+.page-transition {
+  transition: all 0.8s ease-out;
+}
+
+.page-transition.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.page-transition.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

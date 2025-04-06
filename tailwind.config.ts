@@ -65,7 +65,7 @@ export default {
 				},
 				qarawin: {
 					black: '#000000e6',
-					red: '#ea384c',
+					red: '#ca0013',
 					darkgray: '#222',
 					cream: '#F7F3EE',
 					gold: '#D4AF37',
@@ -73,8 +73,8 @@ export default {
 				}
 			},
 			fontFamily: {
-				serif: ['Playfair Display', 'serif'],
-				sans: ['Raleway', 'sans-serif']
+				inter: ['Inter', 'sans-serif'],
+				montreal: ['Neue Montreal', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
