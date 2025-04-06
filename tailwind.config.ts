@@ -74,7 +74,7 @@ export default {
 			},
 			fontFamily: {
 				inter: ['Inter', 'sans-serif'],
-				montreal: ['Neue Montreal', 'sans-serif']
+				montreal: ['Inter', 'sans-serif'] // Changed from Neue Montreal to Inter
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
