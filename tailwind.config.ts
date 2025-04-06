@@ -64,11 +64,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				qarawin: {
-					blue: '#1A4B84',
-					terracotta: '#C45A48',
-					cream: '#E8DED1',
+					black: '#000000e6',
+					red: '#ea384c',
+					darkgray: '#222',
+					cream: '#F7F3EE',
 					gold: '#D4AF37',
-					dark: '#2C3342',
 					light: '#F7F3EE'
 				}
 			},

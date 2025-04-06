@@ -92,7 +92,7 @@
   }
 
   body {
-    @apply bg-qarawin-light text-qarawin-dark font-sans;
+    @apply bg-qarawin-black text-qarawin-cream font-sans;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -101,20 +101,20 @@
 }
 
 .pattern-divider {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='10' viewBox='0 0 60 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 5 L0 0 L10 0 Z M15 5 L10 0 L20 0 Z M25 5 L20 0 L30 0 Z M35 5 L30 0 L40 0 Z M45 5 L40 0 L50 0 Z M55 5 L50 0 L60 0 Z' fill='%23C45A48' fill-opacity='0.4'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='10' viewBox='0 0 60 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 5 L0 0 L10 0 Z M15 5 L10 0 L20 0 Z M25 5 L20 0 L30 0 Z M35 5 L30 0 L40 0 Z M45 5 L40 0 L50 0 Z M55 5 L50 0 L60 0 Z' fill='%23ea384c' fill-opacity='0.6'/%3E%3C/svg%3E");
   background-repeat: repeat-x;
   height: 10px;
   width: 100%;
 }
 
 .gradient-text {
-  @apply bg-gradient-to-r from-qarawin-blue to-qarawin-terracotta bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-qarawin-black to-qarawin-red bg-clip-text text-transparent;
 }
 
 .arabesque-border {
   background-image: 
-    linear-gradient(to right, #E8DED1 1px, transparent 1px),
-    linear-gradient(to bottom, #E8DED1 1px, transparent 1px);
+    linear-gradient(to right, #333 1px, transparent 1px),
+    linear-gradient(to bottom, #333 1px, transparent 1px);
   background-size: 20px 20px;
   background-repeat: repeat;
   position: relative;
@@ -126,7 +126,7 @@
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color: #D4AF37;
+  background-color: #ea384c;
   opacity: 0.2;
 }
 
