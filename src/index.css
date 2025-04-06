@@ -1,10 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 39 21% 95%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -13,16 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 212 60% 31%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 16 47% 53%;
+    --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 40 64% 52%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -30,24 +33,17 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 212 60% 31%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,52 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-qarawin-light text-qarawin-dark font-sans;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+.pattern-divider {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='10' viewBox='0 0 60 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 5 L0 0 L10 0 Z M15 5 L10 0 L20 0 Z M25 5 L20 0 L30 0 Z M35 5 L30 0 L40 0 Z M45 5 L40 0 L50 0 Z M55 5 L50 0 L60 0 Z' fill='%23C45A48' fill-opacity='0.4'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  height: 10px;
+  width: 100%;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-qarawin-blue to-qarawin-terracotta bg-clip-text text-transparent;
+}
+
+.arabesque-border {
+  background-image: 
+    linear-gradient(to right, #E8DED1 1px, transparent 1px),
+    linear-gradient(to bottom, #E8DED1 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-repeat: repeat;
+  position: relative;
+}
+
+.arabesque-border::before,
+.arabesque-border::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #D4AF37;
+  opacity: 0.2;
+}
+
+.arabesque-border::before {
+  top: -5px;
+  left: -5px;
+  border-radius: 50% 50% 0 50%;
+}
+
+.arabesque-border::after {
+  bottom: -5px;
+  right: -5px;
+  border-radius: 50% 0 50% 50%;
 }
