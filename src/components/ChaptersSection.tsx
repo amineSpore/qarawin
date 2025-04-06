@@ -68,7 +68,7 @@ const ChaptersSection: React.FC = () => {
       title1: "Asia",
       title2: "Chapter Lead",
       initials: "YE",
-      image: "/lovable-uploads/48a4e936-db30-4eef-b1a3-68e4112e85ce.png"
+      image: null // Setting to null to trigger the fallback
     }
   ];
 
@@ -95,11 +95,13 @@ const ChaptersSection: React.FC = () => {
               >
                 <div className="flex flex-col items-center">
                   <Avatar className="w-32 h-32 mb-4 border-2 border-qarawin-red/20 overflow-hidden">
-                    <AvatarImage 
-                      src={chapter.image} 
-                      alt={chapter.name} 
-                      className="grayscale object-cover w-full h-full" 
-                    />
+                    {chapter.image ? (
+                      <AvatarImage 
+                        src={chapter.image} 
+                        alt={chapter.name} 
+                        className="grayscale object-cover w-full h-full" 
+                      />
+                    ) : null}
                     <AvatarFallback className="bg-qarawin-red/10 text-qarawin-red text-xl font-inter">
                       {chapter.initials}
                     </AvatarFallback>
