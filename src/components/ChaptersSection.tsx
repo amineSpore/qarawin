@@ -54,7 +54,7 @@ const ChaptersSection: React.FC = () => {
       name: "Jad Sbaï",
       title1: "UK",
       initials: "JS",
-      image: "/lovable-uploads/c0c9954c-ebf2-48dc-854a-e3b63f675b59.png"
+      image: 
     },
     {
       name: "Salma Mouhib",
@@ -68,7 +68,7 @@ const ChaptersSection: React.FC = () => {
       title1: "Asia",
       title2: "Chapter Lead",
       initials: "YE",
-      image: "/lovable-uploads/de4ea23a-afbc-455c-84fc-bed1686e50b8.png"
+      image: 
     }
   ];
 
