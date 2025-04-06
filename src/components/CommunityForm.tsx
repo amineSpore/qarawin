@@ -90,7 +90,7 @@ const CommunityForm: React.FC = () => {
             <h2 className="text-2xl md:text-3xl font-serif font-bold text-qarawin-cream mb-3">Join Our Community</h2>
             <div className="w-16 h-1 bg-qarawin-red mx-auto mb-4"></div>
             <p className="text-sm md:text-base text-qarawin-cream/80 max-w-md mx-auto">
-              Be part of our network of Moroccan scientists and entrepreneurs
+      
             </p>
           </div>
           
