@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,7 +65,7 @@ export default {
 				},
 				qarawin: {
 					black: '#000000e6',
-					red: '#ca0013',
+					red: '#ea384c',
 					darkgray: '#222',
 					cream: '#F7F3EE',
 					gold: '#D4AF37',
@@ -72,8 +73,8 @@ export default {
 				}
 			},
 			fontFamily: {
-				serif: ['Neue Montreal', 'sans-serif'],
-				sans: ['Neue Montreal', 'sans-serif']
+				serif: ['Playfair Display', 'serif'],
+				sans: ['Raleway', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
