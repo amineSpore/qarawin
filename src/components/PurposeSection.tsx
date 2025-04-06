@@ -39,44 +39,47 @@ const PurposeSection: React.FC = () => {
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 page-transition">
-            <h2 className="text-3xl md:text-4xl font-inter font-bold text-qarawin-cream mb-4">Our Purpose</h2>
-            <div className="w-20 h-1 bg-qarawin-red mx-auto"></div>
+            <h2 className="text-3xl md:text-4xl font-inter font-bold text-qarawin-cream mb-4">Our Mission & Heritage</h2>
+            <div className="w-20 h-1 bg-qarawin-red mx-auto mb-6"></div>
+            <p className="text-lg text-qarawin-cream/80 max-w-3xl mx-auto font-montreal mb-8">
+              Drawing inspiration from Al-Qarawiyyin, the world's oldest university founded in Fez, we continue a legacy of knowledge that has illuminated minds for over twelve centuries.
+            </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div className="page-transition">
-              <div className="bg-qarawin-darkgray/60 backdrop-blur-sm p-8 rounded-lg shadow-xl shadow-qarawin-red/5 border border-qarawin-red/10 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px]">
-                <h3 className="text-2xl font-inter font-bold text-qarawin-cream mb-4 border-b border-qarawin-red/20 pb-3">Our Vision</h3>
-                <p className="text-qarawin-cream/90 font-montreal mb-5 leading-relaxed">
-                  To position Morocco as a global leader in scientific innovation and deeptech entrepreneurship,
-                  building on our rich intellectual heritage while embracing cutting-edge technologies.
-                </p>
-                <p className="text-qarawin-cream/90 font-montreal leading-relaxed">
-                  Our community draws inspiration from Al Qarawiyyin, the world's oldest university, 
-                  blending centuries of scholarly tradition with modern scientific advancement.
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="page-transition" style={{ transitionDelay: '0ms' }}>
+              <div className="bg-qarawin-darkgray/60 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-qarawin-red/10 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px]">
+                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-qarawin-red/10 mb-6 mx-auto">
+                  <span className="text-2xl font-inter font-bold text-qarawin-red">G</span>
+                </div>
+                <h3 className="text-xl font-inter font-bold text-qarawin-cream mb-3 text-center">Gather</h3>
+                <p className="text-qarawin-cream/90 font-montreal text-center">
+                  Unite the Moroccan scientific community across borders and disciplines to create a powerful network of collaboration and innovation.
                 </p>
               </div>
             </div>
             
-            <div className="space-y-8">
-              <div className="page-transition">
-                <div className="bg-qarawin-darkgray/60 backdrop-blur-sm p-8 rounded-lg shadow-xl shadow-qarawin-red/5 border border-qarawin-red/10 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px]">
-                  <h3 className="text-2xl font-inter font-bold text-qarawin-cream mb-4 border-b border-qarawin-red/20 pb-3">Our Mission</h3>
-                  <p className="text-qarawin-cream/90 font-montreal leading-relaxed">
-                    To cultivate a thriving ecosystem that connects Moroccan scientists, researchers, and deeptech 
-                    entrepreneurs worldwide, fostering collaboration and innovation that bridges continents and disciplines.
-                  </p>
+            <div className="page-transition" style={{ transitionDelay: '150ms' }}>
+              <div className="bg-qarawin-darkgray/60 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-qarawin-red/10 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px]">
+                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-qarawin-red/10 mb-6 mx-auto">
+                  <span className="text-2xl font-inter font-bold text-qarawin-red">P</span>
                 </div>
+                <h3 className="text-xl font-inter font-bold text-qarawin-cream mb-3 text-center">Promote</h3>
+                <p className="text-qarawin-cream/90 font-montreal text-center">
+                  Elevate the visibility and impact of Moroccan scientists around the world, celebrating their achievements and contributions.
+                </p>
               </div>
-              
-              <div className="page-transition" style={{ transitionDelay: '150ms' }}>
-                <div className="bg-qarawin-darkgray/60 backdrop-blur-sm p-8 rounded-lg shadow-xl shadow-qarawin-red/5 border border-qarawin-red/10 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px]">
-                  <h3 className="text-2xl font-inter font-bold text-qarawin-cream mb-4 border-b border-qarawin-red/20 pb-3">Our Values</h3>
-                  <p className="text-qarawin-cream/90 font-montreal leading-relaxed">
-                    Knowledge sharing, inclusive excellence, and pushing boundaries in pursuit of scientific and entrepreneurial
-                    breakthroughs that serve humanity while honoring our cultural roots.
-                  </p>
+            </div>
+            
+            <div className="page-transition" style={{ transitionDelay: '300ms' }}>
+              <div className="bg-qarawin-darkgray/60 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-qarawin-red/10 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px]">
+                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-qarawin-red/10 mb-6 mx-auto">
+                  <span className="text-2xl font-inter font-bold text-qarawin-red">E</span>
                 </div>
+                <h3 className="text-xl font-inter font-bold text-qarawin-cream mb-3 text-center">Encourage</h3>
+                <p className="text-qarawin-cream/90 font-montreal text-center">
+                  Inspire the next generation of Moroccan youth to pursue academic excellence and scientific innovation.
+                </p>
               </div>
             </div>
           </div>
