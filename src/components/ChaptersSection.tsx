@@ -10,8 +10,12 @@ const ChaptersSection: React.FC = () => {
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.remove('hidden');
-            entry.target.classList.add('visible');
+            const elements = entry.target.querySelectorAll('.page-transition');
+            elements.forEach((el, index) => {
+              setTimeout(() => {
+                el.classList.remove('opacity-0', 'translate-y-10');
+              }, index * 100);
+            });
           }
         });
       },
@@ -22,14 +26,14 @@ const ChaptersSection: React.FC = () => {
       }
     );
     
-    const elements = sectionRef.current?.querySelectorAll('.page-transition');
-    elements?.forEach(el => {
-      el.classList.add('hidden');
-      observer.observe(el);
-    });
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
     
     return () => {
-      elements?.forEach(el => observer.unobserve(el));
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
     };
   }, []);
 
@@ -76,7 +80,7 @@ const ChaptersSection: React.FC = () => {
       
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 page-transition">
+          <div className="text-center mb-16 page-transition opacity-0 translate-y-10 transition-all duration-700">
             <h2 className="text-3xl md:text-4xl font-inter font-bold text-qarawin-cream mb-4">Global Chapters</h2>
             <div className="w-20 h-1 bg-qarawin-red mx-auto mb-6"></div>
             <p className="text-lg text-qarawin-cream/80 max-w-2xl mx-auto font-montreal">
@@ -87,7 +91,7 @@ const ChaptersSection: React.FC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {chapters.map((chapter, index) => (
               <div 
-                className={`page-transition ${index === 4 ? 'lg:col-start-2' : ''}`} 
+                className={`page-transition opacity-0 translate-y-10 transition-all duration-700 ${index === 4 ? 'lg:col-start-2' : ''}`} 
                 style={{ transitionDelay: `${index * 100}ms` }}
                 key={chapter.name}
               >
@@ -106,7 +110,7 @@ const ChaptersSection: React.FC = () => {
             ))}
           </div>
           
-          <div className="mt-16 text-center page-transition" style={{ transitionDelay: '500ms' }}>
+          <div className="mt-16 text-center page-transition opacity-0 translate-y-10 transition-all duration-700" style={{ transitionDelay: '500ms' }}>
             <button className="bg-transparent hover:bg-qarawin-red/10 text-qarawin-red border border-qarawin-red/30 px-6 py-3 rounded-md transition-all duration-300 font-montreal">
               Start a Local Chapter
             </button>

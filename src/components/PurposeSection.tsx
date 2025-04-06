@@ -9,8 +9,12 @@ const PurposeSection: React.FC = () => {
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.remove('hidden');
-            entry.target.classList.add('visible');
+            const elements = entry.target.querySelectorAll('.page-transition');
+            elements.forEach((el, index) => {
+              setTimeout(() => {
+                el.classList.remove('opacity-0', 'translate-y-10');
+              }, index * 150);
+            });
           }
         });
       },
@@ -21,14 +25,14 @@ const PurposeSection: React.FC = () => {
       }
     );
     
-    const elements = sectionRef.current?.querySelectorAll('.page-transition');
-    elements?.forEach(el => {
-      el.classList.add('hidden');
-      observer.observe(el);
-    });
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
     
     return () => {
-      elements?.forEach(el => observer.unobserve(el));
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
     };
   }, []);
 
@@ -38,7 +42,7 @@ const PurposeSection: React.FC = () => {
       
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16 page-transition">
+          <div className="text-center mb-16 page-transition opacity-0 translate-y-10 transition-all duration-700">
             <h2 className="text-3xl md:text-4xl font-inter font-bold text-qarawin-cream mb-4">Our Mission & Heritage</h2>
             <div className="w-20 h-1 bg-qarawin-red mx-auto mb-6"></div>
             <p className="text-lg text-qarawin-cream/80 max-w-3xl mx-auto font-montreal mb-8">
@@ -47,7 +51,7 @@ const PurposeSection: React.FC = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="page-transition" style={{ transitionDelay: '0ms' }}>
+            <div className="page-transition opacity-0 translate-y-10 transition-all duration-700" style={{ transitionDelay: '0ms' }}>
               <div className="bg-qarawin-darkgray/60 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-qarawin-red/10 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px]">
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-qarawin-red/10 mb-6 mx-auto">
                   <span className="text-2xl font-inter font-bold text-qarawin-red">G</span>
@@ -59,7 +63,7 @@ const PurposeSection: React.FC = () => {
               </div>
             </div>
             
-            <div className="page-transition" style={{ transitionDelay: '150ms' }}>
+            <div className="page-transition opacity-0 translate-y-10 transition-all duration-700" style={{ transitionDelay: '150ms' }}>
               <div className="bg-qarawin-darkgray/60 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-qarawin-red/10 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px]">
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-qarawin-red/10 mb-6 mx-auto">
                   <span className="text-2xl font-inter font-bold text-qarawin-red">P</span>
@@ -71,7 +75,7 @@ const PurposeSection: React.FC = () => {
               </div>
             </div>
             
-            <div className="page-transition" style={{ transitionDelay: '300ms' }}>
+            <div className="page-transition opacity-0 translate-y-10 transition-all duration-700" style={{ transitionDelay: '300ms' }}>
               <div className="bg-qarawin-darkgray/60 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-qarawin-red/10 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px]">
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-qarawin-red/10 mb-6 mx-auto">
                   <span className="text-2xl font-inter font-bold text-qarawin-red">E</span>
