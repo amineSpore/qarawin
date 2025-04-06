@@ -59,15 +59,15 @@ const ChaptersSection: React.FC = () => {
     {
       name: "Salma Mouhib",
       title1: "Morocco",
-      title2: "Chapter Lead",
       initials: "SM",
       image: "/lovable-uploads/ad2f8e7d-7e13-4371-82bd-93a53032fb42.png"
     },
     {
       name: "Youssef Ezzaky",
       title1: "Asia",
+      title2: "Chapter Lead",
       initials: "YE",
-      image: null
+      image: "/lovable-uploads/de4ea23a-afbc-455c-84fc-bed1686e50b8.png"
     }
   ];
 
