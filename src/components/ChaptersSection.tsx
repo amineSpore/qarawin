@@ -54,7 +54,7 @@ const ChaptersSection: React.FC = () => {
       name: "Jad Sbaï",
       title1: "UK",
       initials: "JS",
-      image: "/lovable-uploads/c0c9954c-ebf2-48dc-854a-e3b63f675b59.png"
+      image: "/lovable-uploads/7f9bf3ed-4d07-4d4b-a4f4-b2c7ab5d493f.png"
     },
     {
       name: "Salma Mouhib",
@@ -79,7 +79,7 @@ const ChaptersSection: React.FC = () => {
           <div className="text-center mb-16 page-transition opacity-0 translate-y-10 transition-all duration-700">
             <h2 className="text-3xl md:text-4xl font-inter font-bold text-qarawin-cream mb-4">Global Chapters</h2>
             <div className="w-20 h-1 bg-qarawin-red mx-auto mb-6"></div>
-            <p className="text-lg text-qarawin-cream/80 max-w-2xl mx-auto font-montreal">
+            <p className="text-lg text-qarawin-cream/80 max-w-2xl mx-auto font-inter">
               Extending our community across continents to connect Moroccan brilliance worldwide
             </p>
           </div>
@@ -103,8 +103,7 @@ const ChaptersSection: React.FC = () => {
                     </AvatarFallback>
                   </Avatar>
                   <h3 className="text-xl font-inter font-bold text-qarawin-cream mb-1 text-center">{chapter.name}</h3>
-                  <p className="text-qarawin-red font-montreal font-medium mb-1 text-center">{chapter.title1}</p>
-                  <p className="text-qarawin-cream/70 font-montreal text-center text-sm">{chapter.title2}</p>
+                  <p className="text-qarawin-red font-inter font-medium mb-1 text-center">{chapter.title1}</p>
                 </div>
               </div>
             ))}
