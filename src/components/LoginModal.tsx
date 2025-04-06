@@ -84,35 +84,15 @@ const SubmissionsViewer = () => {
 
 // Main login modal component
 const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
-  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { toast } = useToast();
   
-  // Admin credentials - in a real application, these would be handled securely
-  const ADMIN_CREDENTIALS = {
-    username: 'admin',
-    password: 'qarawin2025'
-  };
-  
-  // Check if admin credentials are already set in localStorage
-  React.useEffect(() => {
-    const storedCredentials = localStorage.getItem('adminCredentials');
-    if (!storedCredentials) {
-      // Set default credentials if not already stored
-      localStorage.setItem('adminCredentials', JSON.stringify(ADMIN_CREDENTIALS));
-    }
-  }, []);
-  
-  const getAdminCredentials = () => {
-    const storedCredentials = localStorage.getItem('adminCredentials');
-    return storedCredentials ? JSON.parse(storedCredentials) : ADMIN_CREDENTIALS;
-  };
+  // Simple admin password - in a real application, this would be handled securely
+  const ADMIN_PASSWORD = 'Qarawin2025XMDS';
   
   const handleAuthenticate = () => {
-    const currentCredentials = getAdminCredentials();
-    
-    if (username === currentCredentials.username && password === currentCredentials.password) {
+    if (password === ADMIN_PASSWORD) {
       setIsAuthenticated(true);
       toast({
         title: "Login successful",
@@ -121,7 +101,7 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
     } else {
       toast({
         title: "Login failed",
-        description: "Invalid username or password",
+        description: "Invalid password",
         variant: "destructive",
       });
     }
@@ -149,19 +129,6 @@ const LoginModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
           <div className="bg-qarawin-darkgray/90 backdrop-blur-sm p-6 rounded-lg border border-qarawin-red/20 shadow-xl">
             <h3 className="text-xl font-serif font-bold text-qarawin-cream mb-4">Admin Login</h3>
             <div className="space-y-4">
-              <div>
-                <label htmlFor="username" className="block text-sm font-medium text-qarawin-cream/80 mb-1">
-                  Username
-                </label>
-                <Input
-                  id="username"
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Enter admin username"
-                  className="w-full border border-qarawin-red/20 bg-qarawin-black/50 text-qarawin-cream"
-                />
-              </div>
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-qarawin-cream/80 mb-1">
                   Password
