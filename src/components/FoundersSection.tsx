@@ -44,10 +44,6 @@ const FoundersSection: React.FC = () => {
     <section id="founders" className="py-20 bg-qarawin-black relative" ref={sectionRef}>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg1djVIMHptMTAgMGg1djVoLTV6TTAgMTBoNXY1SDB6bTEwIDBoNXY1aC01eiIgZmlsbD0iI0Q0QUYzNyIgZmlsbC1vcGFjaXR5PSIuMDUiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==')] opacity-40"></div>
       
-      {/* Legacy image backdrop - faded and blurred */}
-      <div className="absolute inset-0 bg-[url('/lovable-uploads/5a702ca1-ebc0-43ae-8ff4-4edb97822db5.png')] bg-center bg-cover opacity-5 blur-sm"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-qarawin-black to-qarawin-black/90"></div>
-      
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 animate-on-scroll">
@@ -64,17 +60,14 @@ const FoundersSection: React.FC = () => {
                 <CarouselItem>
                   <Card className="border-qarawin-red/20 bg-qarawin-darkgray/80 backdrop-blur-sm overflow-hidden shadow-xl animate-on-scroll">
                     <CardContent className="p-0">
-                      <div className="relative">
-                        <div className="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-qarawin-red/10 rounded-tr-lg"></div>
-                        <div className="p-8">
-                          <div className="h-2 bg-qarawin-red rounded-full mb-6"></div>
-                          <h3 className="text-2xl font-serif font-bold text-qarawin-cream mb-2">Amine Raji</h3>
-                          <p className="text-qarawin-red font-medium mb-4">Co-Founder & CEO of Spore.Bio</p>
-                          <p className="text-qarawin-cream/90">
-                            A pioneer in the Moroccan deeptech ecosystem, Amine brings his expertise in biotech innovation and startup 
-                            leadership to build bridges between scientific research and entrepreneurial ventures.
-                          </p>
-                        </div>
+                      <div className="p-8">
+                        <div className="h-2 bg-qarawin-red rounded-full mb-6"></div>
+                        <h3 className="text-2xl font-serif font-bold text-qarawin-cream mb-2">Amine Raji</h3>
+                        <p className="text-qarawin-red font-medium mb-4">Co-Founder & CEO of Spore.Bio</p>
+                        <p className="text-qarawin-cream/90">
+                          A pioneer in the Moroccan deeptech ecosystem, Amine brings his expertise in biotech innovation and startup 
+                          leadership to build bridges between scientific research and entrepreneurial ventures.
+                        </p>
                       </div>
                     </CardContent>
                   </Card>
@@ -82,17 +75,14 @@ const FoundersSection: React.FC = () => {
                 <CarouselItem>
                   <Card className="border-qarawin-red/20 bg-qarawin-darkgray/80 backdrop-blur-sm overflow-hidden shadow-xl animate-on-scroll">
                     <CardContent className="p-0">
-                      <div className="relative">
-                        <div className="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-qarawin-red/10 rounded-tr-lg"></div>
-                        <div className="p-8">
-                          <div className="h-2 bg-qarawin-red rounded-full mb-6"></div>
-                          <h3 className="text-2xl font-serif font-bold text-qarawin-cream mb-2">Sofia Dahoune</h3>
-                          <p className="text-qarawin-red font-medium mb-4">ENS Teacher & DeepTech Investor</p>
-                          <p className="text-qarawin-cream/90">
-                            Combining academic excellence with investment acumen, Sofia works to identify and nurture the next generation of 
-                            scientific talent and innovative startups emerging from Morocco.
-                          </p>
-                        </div>
+                      <div className="p-8">
+                        <div className="h-2 bg-qarawin-red rounded-full mb-6"></div>
+                        <h3 className="text-2xl font-serif font-bold text-qarawin-cream mb-2">Sofia Dahoune</h3>
+                        <p className="text-qarawin-red font-medium mb-4">ENS Teacher & DeepTech Investor</p>
+                        <p className="text-qarawin-cream/90">
+                          Combining academic excellence with investment acumen, Sofia works to identify and nurture the next generation of 
+                          scientific talent and innovative startups emerging from Morocco.
+                        </p>
                       </div>
                     </CardContent>
                   </Card>
@@ -108,38 +98,28 @@ const FoundersSection: React.FC = () => {
           <div className="hidden md:grid md:grid-cols-2 gap-10">
             <Card className="border-qarawin-red/20 bg-qarawin-darkgray/80 backdrop-blur-sm overflow-hidden shadow-xl transform transition-all duration-500 hover:shadow-qarawin-red/10 hover:translate-y-[-5px] animate-on-scroll">
               <CardContent className="p-0">
-                <div className="relative">
-                  <div className="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-qarawin-red/10 rounded-tr-lg"></div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 border-b-2 border-l-2 border-qarawin-red/10 rounded-bl-lg"></div>
-                  
-                  <div className="p-8">
-                    <div className="h-2 bg-qarawin-red rounded-full mb-6"></div>
-                    <h3 className="text-2xl font-serif font-bold text-qarawin-cream mb-2">Amine Raji</h3>
-                    <p className="text-qarawin-red font-medium mb-4">Co-Founder & CEO of Spore.Bio</p>
-                    <p className="text-qarawin-cream/90">
-                      A pioneer in the Moroccan deeptech ecosystem, Amine brings his expertise in biotech innovation and startup 
-                      leadership to build bridges between scientific research and entrepreneurial ventures.
-                    </p>
-                  </div>
+                <div className="p-8">
+                  <div className="h-2 bg-qarawin-red rounded-full mb-6"></div>
+                  <h3 className="text-2xl font-serif font-bold text-qarawin-cream mb-2">Amine Raji</h3>
+                  <p className="text-qarawin-red font-medium mb-4">Co-Founder & CEO of Spore.Bio</p>
+                  <p className="text-qarawin-cream/90">
+                    A pioneer in the Moroccan deeptech ecosystem, Amine brings his expertise in biotech innovation and startup 
+                    leadership to build bridges between scientific research and entrepreneurial ventures.
+                  </p>
                 </div>
               </CardContent>
             </Card>
             
             <Card className="border-qarawin-red/20 bg-qarawin-darkgray/80 backdrop-blur-sm overflow-hidden shadow-xl transform transition-all duration-500 hover:shadow-qarawin-red/10 hover:translate-y-[-5px] animate-on-scroll">
               <CardContent className="p-0">
-                <div className="relative">
-                  <div className="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-qarawin-red/10 rounded-tr-lg"></div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 border-b-2 border-l-2 border-qarawin-red/10 rounded-bl-lg"></div>
-                  
-                  <div className="p-8">
-                    <div className="h-2 bg-qarawin-red rounded-full mb-6"></div>
-                    <h3 className="text-2xl font-serif font-bold text-qarawin-cream mb-2">Sofia Dahoune</h3>
-                    <p className="text-qarawin-red font-medium mb-4">ENS Teacher & DeepTech Investor</p>
-                    <p className="text-qarawin-cream/90">
-                      Combining academic excellence with investment acumen, Sofia works to identify and nurture the next generation of 
-                      scientific talent and innovative startups emerging from Morocco.
-                    </p>
-                  </div>
+                <div className="p-8">
+                  <div className="h-2 bg-qarawin-red rounded-full mb-6"></div>
+                  <h3 className="text-2xl font-serif font-bold text-qarawin-cream mb-2">Sofia Dahoune</h3>
+                  <p className="text-qarawin-red font-medium mb-4">ENS Teacher & DeepTech Investor</p>
+                  <p className="text-qarawin-cream/90">
+                    Combining academic excellence with investment acumen, Sofia works to identify and nurture the next generation of 
+                    scientific talent and innovative startups emerging from Morocco.
+                  </p>
                 </div>
               </CardContent>
             </Card>

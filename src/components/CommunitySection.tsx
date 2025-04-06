@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { ChevronDown, BookOpen, Lightbulb, Users, Coins } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const CommunitySection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -43,26 +43,22 @@ const CommunitySection: React.FC = () => {
     {
       title: "Global Network",
       description: "Connect with Moroccan scientists and entrepreneurs across the world through our exclusive community platform.",
-      color: "bg-qarawin-red",
-      icon: <Users className="h-6 w-6 text-qarawin-red/70" />
+      color: "bg-qarawin-red"
     },
     {
       title: "Knowledge Exchange",
       description: "Access workshops, webinars, and resources focused on deeptech innovation and scientific research.",
-      color: "bg-qarawin-red",
-      icon: <BookOpen className="h-6 w-6 text-qarawin-red/70" />
+      color: "bg-qarawin-red"
     },
     {
       title: "Funding Opportunities",
       description: "Gain visibility with investors specialized in deeptech ventures and scientific commercialization.",
-      color: "bg-qarawin-red",
-      icon: <Coins className="h-6 w-6 text-qarawin-red/70" />
+      color: "bg-qarawin-red"
     },
     {
       title: "Collaborative Projects",
       description: "Find partners for research initiatives and startup ventures within our curated community.",
-      color: "bg-qarawin-red",
-      icon: <Lightbulb className="h-6 w-6 text-qarawin-red/70" />
+      color: "bg-qarawin-red"
     },
   ];
 
@@ -79,14 +75,10 @@ const CommunitySection: React.FC = () => {
   };
 
   return (
-    <section id="community" className="py-20 bg-qarawin-black relative film-grain" ref={sectionRef}>
+    <section id="community" className="py-20 bg-qarawin-black relative" ref={sectionRef}>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTMwIDYwYzE2LjU2OSAwIDMwLTEzLjQzMSAzMC0zMFM0Ni41NjkgMCAzMCAwIDAgMTMuNDMxIDAgMzBzMTMuNDMxIDMwIDMwIDMwem0wLTVjMTMuODA3IDAgMjUtMTEuMTkzIDI1LTI1UzQzLjgwNyA1IDMwIDUgNSAxNi4xOTMgNSAzMHMxMS4xOTMgMjUgMjUgMjV6IiBmaWxsPSIjZWEzODRjIiBmaWxsLW9wYWNpdHk9Ii4wMiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+')] opacity-50"></div>
       
-      {/* Vintage imagery - subtle background */}
-      <div className="absolute opacity-10 inset-0 bg-[url('/lovable-uploads/5a702ca1-ebc0-43ae-8ff4-4edb97822db5.png')] bg-bottom bg-repeat-y bg-contain"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-qarawin-black via-qarawin-black/95 to-qarawin-black/90"></div>
-      
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 animate-on-scroll">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-qarawin-cream mb-4">Join Our Community</h2>
@@ -100,10 +92,7 @@ const CommunitySection: React.FC = () => {
             {benefits.map((benefit, index) => (
               <Card key={index} className="border-qarawin-red/20 bg-qarawin-darkgray/80 backdrop-blur-sm shadow-xl hover:shadow-qarawin-red/10 transition-all duration-500 transform hover:-translate-y-1 animate-on-scroll" style={{ animationDelay: `${0.1 * index}s` }}>
                 <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
-                    <div className={`w-1 h-12 ${benefit.color} rounded-full mr-4`}></div>
-                    {benefit.icon}
-                  </div>
+                  <div className={`w-12 h-1 ${benefit.color} rounded-full mb-4`}></div>
                   <h3 className="text-xl font-serif font-semibold text-qarawin-cream mb-3">{benefit.title}</h3>
                   <p className="text-qarawin-cream/90">{benefit.description}</p>
                 </CardContent>
@@ -112,11 +101,7 @@ const CommunitySection: React.FC = () => {
           </div>
           
           <div className="mt-16 text-center animate-on-scroll">
-            <div className="max-w-md mx-auto bg-qarawin-darkgray/80 backdrop-blur-sm p-8 rounded-lg border border-qarawin-red/20 shadow-xl relative vintage-frame">
-              {/* Decorative corners */}
-              <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-qarawin-red/20 rounded-tr-lg"></div>
-              <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-qarawin-red/20 rounded-bl-lg"></div>
-              
+            <div className="max-w-md mx-auto bg-qarawin-darkgray/80 backdrop-blur-sm p-8 rounded-lg border border-qarawin-red/20 shadow-xl">
               <h3 className="text-2xl font-serif font-bold text-qarawin-cream mb-4">Ready to join us?</h3>
               <p className="text-qarawin-cream/90 mb-6">
                 Sign up now to become part of the first community of Moroccan scientists and deeptech entrepreneurs.
