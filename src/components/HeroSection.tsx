@@ -31,27 +31,27 @@ const HeroSection: React.FC = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden bg-qarawin-black">
-      <div className="absolute inset-0 bg-arabesque-pattern opacity-15"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-qarawin-black/95 to-qarawin-black/80"></div>
+      <div className="absolute inset-0 bg-arabesque-pattern opacity-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-qarawin-black via-qarawin-black/90 to-qarawin-black"></div>
       
       {/* Animated circles */}
       <div ref={circleRedRef} className="circle-red"></div>
       <div ref={circleWhiteRef} className="circle-white"></div>
       
       <div className="container mx-auto px-6 md:px-12 z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h1 className="text-5xl md:text-8xl lg:text-[12rem] font-inter font-bold leading-tight animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
-            <span className="block text-qarawin-red tracking-tight mb-4">QARAWIN</span>
+        <div className="max-w-4xl mx-auto text-center space-y-10">
+          <h1 className="text-7xl md:text-[10rem] lg:text-[16rem] font-inter font-bold leading-tight animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
+            <span className="block text-qarawin-red tracking-tight mb-4 text-shadow-glow">QARAWIN</span>
           </h1>
           
-          <p className="text-sm md:text-base font-montreal text-qarawin-cream/80 max-w-xl mx-auto animate-fade-in opacity-0 tracking-wide" style={{ animationDelay: '0.4s' }}>
+          <p className="text-base md:text-xl font-montreal text-qarawin-cream/90 max-w-xl mx-auto animate-fade-in opacity-0 tracking-wide letter-spacing-wider" style={{ animationDelay: '0.4s' }}>
             Uniting Moroccan Scientists & Deeptech Entrepreneurs
           </p>
           
-          <div className="pt-8 animate-fade-in opacity-0" style={{ animationDelay: '0.6s' }}>
+          <div className="pt-10 animate-fade-in opacity-0" style={{ animationDelay: '0.6s' }}>
             <Button 
               onClick={scrollToCommunity}
-              className="bg-qarawin-red hover:bg-qarawin-red/90 text-white px-6 py-6 text-lg rounded-md shadow-lg transition-all duration-300 hover:shadow-qarawin-red/20 hover:shadow-xl hover:-translate-y-1 font-montreal"
+              className="bg-qarawin-red hover:bg-qarawin-red/90 text-white px-8 py-7 text-lg rounded-md shadow-xl transition-all duration-500 hover:shadow-qarawin-red/30 hover:shadow-2xl hover:-translate-y-1 font-montreal tracking-wider border border-qarawin-red/20"
             >
               Join Our Community
             </Button>

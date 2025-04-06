@@ -132,6 +132,14 @@
   width: 100%;
 }
 
+.text-shadow-glow {
+  text-shadow: 0 0 30px rgba(202, 0, 19, 0.3), 0 0 60px rgba(202, 0, 19, 0.1);
+}
+
+.letter-spacing-wider {
+  letter-spacing: 0.05em;
+}
+
 .gradient-text {
   @apply bg-gradient-to-r from-qarawin-red via-qarawin-red to-qarawin-red/60 bg-clip-text text-transparent;
   text-shadow: 0 0 40px rgba(202, 0, 19, 0.3);
@@ -259,6 +267,7 @@
   background: radial-gradient(circle, rgba(202, 0, 19, 0.9) 0%, rgba(202, 0, 19, 0) 70%);
   animation: orbit-red 20s linear infinite;
   mix-blend-mode: screen;
+  filter: blur(40px);
 }
 
 .circle-white {
@@ -269,6 +278,7 @@
   background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
   animation: orbit-white 20s linear infinite;
   mix-blend-mode: overlay;
+  filter: blur(20px);
 }
 
 /* Page transition animations */
@@ -284,4 +294,26 @@
 .page-transition.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Refined profile cards */
+.profile-card {
+  @apply relative overflow-hidden transition-all duration-500;
+}
+
+.profile-card::after {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-t from-qarawin-black to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.profile-card:hover::after {
+  @apply opacity-30;
+}
+
+.profile-card:hover .profile-info {
+  @apply translate-y-0 opacity-100;
+}
+
+.profile-info {
+  @apply absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-qarawin-black to-transparent text-white translate-y-2 opacity-90 transition-all duration-300;
 }
