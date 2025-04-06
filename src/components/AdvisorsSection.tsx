@@ -43,42 +43,42 @@ const AdvisorsSection: React.FC = () => {
       title1: "MIT Sandbox",
       title2: "Executive Director",
       initials: "JA",
-      image: "/lovable-uploads/54d04da9-172e-45f1-8293-d228bdb332a6.png"
+      image: "/lovable-uploads/fcb7483c-b585-4dcb-bd69-a3c9b8986a06.png"
     },
     {
       name: "Youssef Laghzioui",
       title1: "UM6P Ventures",
       title2: "General Partner",
       initials: "YL",
-      image: "/lovable-uploads/de4ea23a-afbc-455c-84fc-bed1686e50b8.png"
+      image: "/lovable-uploads/0ee6594c-646e-4838-b3a5-374dd3bb6b9c.png"
     },
     {
       name: "Mehdi Ghissassi",
       title1: "AI71",
       title2: "Chief Product Officer",
       initials: "MG",
-      image: "/lovable-uploads/4bd5f4aa-0316-4949-b14a-8eb002c55206.png"
+      image: "/lovable-uploads/c0c9954c-ebf2-48dc-854a-e3b63f675b59.png"
     },
     {
       name: "Mahmoud Mikdar",
       title1: "Harvard Medical School",
       title2: "Research Fellow",
       initials: "MM",
-      image: "/lovable-uploads/fdc55033-853f-4141-92a4-e6a81598497f.png"
+      image: "/lovable-uploads/48a4e936-db30-4eef-b1a3-68e4112e85ce.png"
     },
     {
       name: "Khalil Amine",
       title1: "Argonne National Laboratory",
       title2: "Team Leader",
       initials: "KA",
-      image: "/lovable-uploads/a7122724-bf9f-4a23-b794-730d79c705dd.png"
+      image: "/lovable-uploads/ad2f8e7d-7e13-4371-82bd-93a53032fb42.png"
     },
     {
       name: "Nadia Kamal",
       title1: "Harmonie Mutuelle",
       title2: "Health and Innovation Director",
       initials: "NK",
-      image: "/lovable-uploads/fcb7483c-b585-4dcb-bd69-a3c9b8986a06.png"
+      image: "/lovable-uploads/e6be84d3-bc86-408a-809a-c0998ec436e2.png"
     }
   ];
 
