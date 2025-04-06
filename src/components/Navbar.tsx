@@ -44,10 +44,16 @@ const Navbar: React.FC = () => {
       }`}>
         <div className="container mx-auto px-4 md:px-6 py-4">
           <div className="flex justify-between items-center">
+            {/* QARAWIN logo on the left */}
             <div className="flex items-center">
-              {/* Empty left side for symmetry */}
+              <h1 className="text-sm font-inter font-bold">
+                <span className="text-qarawin-cream transition-colors duration-300 hover:text-qarawin-red">
+                  QARAWIN
+                </span>
+              </h1>
             </div>
             
+            {/* Navigation links centered */}
             <div className="hidden md:flex space-x-10 items-center text-sm font-montreal">
               <button 
                 onClick={() => scrollToSection('purpose')} 
@@ -79,14 +85,7 @@ const Navbar: React.FC = () => {
               </button>
             </div>
 
-            <div className="flex items-center">
-              <h1 className="text-sm font-inter font-bold">
-                <span className="text-qarawin-cream transition-colors duration-300 hover:text-qarawin-red">
-                  QARAWIN
-                </span>
-              </h1>
-            </div>
-            
+            {/* Admin button on the right */}
             <div className="flex items-center space-x-4">
               <button 
                 onClick={() => setIsLoginModalOpen(true)}
