@@ -57,7 +57,7 @@ const AdvisorsSection: React.FC = () => {
       title1: "AI71",
       title2: "Chief Product Officer",
       initials: "MG",
-      image: "/lovable-uploads/4bd5f4aa-0316-4949-b14a-8eb002c55206.png"
+      image: "/lovable-uploads/c0c9954c-ebf2-48dc-854a-e3b63f675b59.png"
     },
     {
       name: "Mahmoud Mikdar",
