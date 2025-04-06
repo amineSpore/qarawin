@@ -36,7 +36,7 @@ const Index: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-qarawin-black">
       <Navbar />
-      <main>
+      <main className="flex-1">
         <HeroSection />
         <PurposeSection />
         <AdvisorsSection />

@@ -96,23 +96,27 @@ const AdvisorsSection: React.FC = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center items-start gap-8">
             {advisors.map((advisor, index) => (
               <div 
-                className="page-transition opacity-0 translate-y-10 transition-all duration-700" 
+                className="page-transition opacity-0 translate-y-10 transition-all duration-700 w-48" 
                 style={{ transitionDelay: `${index * 100}ms` }}
                 key={advisor.name}
               >
                 <div className="flex flex-col items-center">
-                  <Avatar className="w-32 h-32 mb-6 border-2 border-qarawin-red/20">
-                    <AvatarImage src={advisor.image} alt={advisor.name} className="grayscale object-cover" />
+                  <Avatar className="w-32 h-32 mb-4 border-2 border-qarawin-red/20 overflow-hidden">
+                    <AvatarImage 
+                      src={advisor.image} 
+                      alt={advisor.name} 
+                      className="grayscale object-cover w-full h-full" 
+                    />
                     <AvatarFallback className="bg-qarawin-red/10 text-qarawin-red text-xl font-inter">
                       {advisor.initials}
                     </AvatarFallback>
                   </Avatar>
-                  <h3 className="text-xl font-inter font-bold text-qarawin-cream mb-2 text-center">{advisor.name}</h3>
+                  <h3 className="text-xl font-inter font-bold text-qarawin-cream mb-1 text-center">{advisor.name}</h3>
                   <p className="text-qarawin-red font-montreal font-medium mb-1 text-center">{advisor.title1}</p>
-                  <p className="text-qarawin-cream/70 font-montreal text-center">{advisor.title2}</p>
+                  <p className="text-qarawin-cream/70 font-montreal text-center text-sm">{advisor.title2}</p>
                 </div>
               </div>
             ))}
