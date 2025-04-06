@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/neue-montreal');
 
 @tailwind base;
 @tailwind components;
@@ -110,7 +109,7 @@
 
 .gradient-text {
   @apply bg-gradient-to-r from-qarawin-red via-qarawin-red to-qarawin-red/60 bg-clip-text text-transparent;
-  text-shadow: 0 0 40px rgba(234, 56, 76, 0.3);
+  text-shadow: 0 0 40px rgba(202, 0, 19, 0.3);
 }
 
 .arabesque-border {
