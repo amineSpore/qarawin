@@ -46,7 +46,7 @@ const FoundersSection: React.FC = () => {
       image: "/lovable-uploads/f1d5ba98-90f1-4ca1-b9df-28c69aec16ec.png"
     },
     {
-      name: "Amine Rafi",
+      name: "Amine Raji",
       title1: "Spore.bio CEO",
       title2: "DeepTech Founder",
       initials: "AR",
