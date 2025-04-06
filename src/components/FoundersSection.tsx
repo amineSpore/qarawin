@@ -39,16 +39,18 @@ const FoundersSection: React.FC = () => {
 
   const founders = [
     {
-      name: "Mohammed El Kabiri",
-      title1: "Co-Founder & CEO",
-      title2: "PhD in Quantum Physics",
-      initials: "MK"
+      name: "Sofia Dahoune",
+      title1: "ENS Professor",
+      title2: "DeepTech Investor",
+      initials: "SD",
+      image: "/lovable-uploads/f1d5ba98-90f1-4ca1-b9df-28c69aec16ec.png"
     },
     {
-      name: "Salma Benjelloun",
-      title1: "Co-Founder & CSO",
-      title2: "Research Lead at CNRS",
-      initials: "SB"
+      name: "Amine Rafi",
+      title1: "Spore.bio CEO",
+      title2: "DeepTech Founder",
+      initials: "AR",
+      image: "/lovable-uploads/531d2eae-d5b5-4fb1-b02b-a2771dca9dbe.png"
     }
   ];
 
@@ -71,7 +73,7 @@ const FoundersSection: React.FC = () => {
               <div className="page-transition opacity-0 translate-y-10 transition-all duration-700" style={{ transitionDelay: `${index * 150}ms` }} key={founder.name}>
                 <div className="bg-qarawin-darkgray/60 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-qarawin-red/10 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] flex flex-col items-center">
                   <Avatar className="w-40 h-40 mb-6 border-2 border-qarawin-red/30">
-                    <AvatarImage src="" alt={founder.name} />
+                    <AvatarImage src={founder.image} alt={founder.name} />
                     <AvatarFallback className="bg-qarawin-red/10 text-qarawin-red text-2xl font-inter">
                       {founder.initials}
                     </AvatarFallback>

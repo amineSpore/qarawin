@@ -35,7 +35,7 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden bg-qarawin-black">
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden bg-qarawin-black">
       <div className="absolute inset-0 bg-arabesque-pattern opacity-15"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-qarawin-black/95 to-qarawin-black/80"></div>
       

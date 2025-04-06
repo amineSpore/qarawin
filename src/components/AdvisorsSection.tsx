@@ -36,40 +36,46 @@ const AdvisorsSection: React.FC = () => {
 
   const advisors = [
     {
-      name: "Dr. Sarah Lahlou",
-      title1: "Chief Scientific Officer",
-      title2: "BioTech Innovations",
-      initials: "SL"
+      name: "Jinane Abounadi",
+      title1: "MIT Sandbox",
+      title2: "Executive Director",
+      initials: "JA",
+      image: "/lovable-uploads/c7189e36-1676-4e56-8339-c30f319942b7.png"
     },
     {
-      name: "Prof. Ahmed Benani",
-      title1: "AI Ethics Chair",
-      title2: "Stanford University",
-      initials: "AB"
+      name: "Youssef Laghzioui",
+      title1: "UM6P Ventures",
+      title2: "General Partner",
+      initials: "YL",
+      image: "/lovable-uploads/672bbcbe-31a6-426d-afab-f85b13f5795f.png"
     },
     {
-      name: "Leila Meziane, PhD",
-      title1: "Venture Partner",
-      title2: "Atlas Ventures",
-      initials: "LM"
+      name: "Mehdi Ghissassi",
+      title1: "AI71",
+      title2: "Chief Product Officer",
+      initials: "MG",
+      image: "/lovable-uploads/2f5bad7b-bbca-40ac-897f-a4d65b146f9b.png"
     },
     {
-      name: "Dr. Karim Idrissi",
-      title1: "Neuroscience Director",
-      title2: "Global Research Institute",
-      initials: "KI"
+      name: "Mahmoud Mikado",
+      title1: "Harvard Medical School",
+      title2: "Research Fellow",
+      initials: "MM",
+      image: "/lovable-uploads/73681699-c2dd-43ab-8965-c29664d2bccc.png"
     },
     {
-      name: "Prof. Fatima Zohra",
-      title1: "Quantum Computing Lead",
-      title2: "MIT Research Lab",
-      initials: "FZ"
+      name: "Khalil Amine",
+      title1: "Argonne National Laboratory",
+      title2: "Team Leader",
+      initials: "KA",
+      image: "/lovable-uploads/aae990c5-bf83-4363-a85c-0061b81aac84.png"
     },
     {
-      name: "Dr. Youssef Amrani",
-      title1: "Climate Science Director",
-      title2: "International Climate Council",
-      initials: "YA"
+      name: "Nadia Kamal",
+      title1: "Harmonie Mutuelle",
+      title2: "Health and Innovation Director",
+      initials: "NK",
+      image: "/lovable-uploads/6575c5da-7bec-4f71-961a-1cbf56775360.png"
     }
   ];
 
@@ -98,7 +104,7 @@ const AdvisorsSection: React.FC = () => {
                   <CardContent className="p-0">
                     <div className="flex flex-col items-center p-8">
                       <Avatar className="w-32 h-32 mb-6 border-2 border-qarawin-red/20">
-                        <AvatarImage src="" alt={advisor.name} />
+                        <AvatarImage src={advisor.image} alt={advisor.name} />
                         <AvatarFallback className="bg-qarawin-red/10 text-qarawin-red text-xl font-inter">
                           {advisor.initials}
                         </AvatarFallback>

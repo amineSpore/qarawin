@@ -35,34 +35,38 @@ const ChaptersSection: React.FC = () => {
 
   const chapters = [
     {
-      name: "Casablanca Chapter",
-      title1: "Morocco's Economic Hub",
-      title2: "150+ Active Members",
-      initials: "CB"
+      name: "Rita Achour",
+      title1: "USA",
+      title2: "Chapter Lead",
+      initials: "RA",
+      image: "/lovable-uploads/b4462e9d-7e21-4586-9c4f-bccb24a5bd0c.png"
     },
     {
-      name: "Paris Chapter",
-      title1: "European Headquarters",
-      title2: "120+ Active Members",
-      initials: "PR"
+      name: "Ines Iraki",
+      title1: "France",
+      title2: "Chapter Lead",
+      initials: "II",
+      image: "/lovable-uploads/2e468051-5740-4dc3-8367-79e1f4b4f62c.png"
     },
     {
-      name: "Boston Chapter",
-      title1: "North American Hub",
-      title2: "85+ Active Members",
-      initials: "BS"
+      name: "Jad Sbaï",
+      title1: "UK",
+      title2: "Chapter Lead",
+      initials: "JS",
+      image: "/lovable-uploads/1c8eb882-39e1-4440-bf83-c9fabed55e54.png"
     },
     {
-      name: "Dubai Chapter",
-      title1: "MENA Connection",
-      title2: "60+ Active Members",
-      initials: "DB"
+      name: "Salma Mouhib",
+      title1: "Morocco",
+      title2: "Chapter Lead",
+      initials: "SM",
+      image: "/lovable-uploads/057fc80d-5026-4459-a641-562f4934a150.png"
     },
     {
-      name: "Singapore Chapter",
-      title1: "Asia-Pacific Bridge",
-      title2: "45+ Active Members",
-      initials: "SG"
+      name: "Youssef Ezzaky",
+      title1: "Asia",
+      title2: "Chapter Lead",
+      initials: "YE"
     }
   ];
 
@@ -89,7 +93,7 @@ const ChaptersSection: React.FC = () => {
               >
                 <div className="bg-qarawin-darkgray/60 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-qarawin-red/10 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] flex flex-col items-center">
                   <Avatar className="w-32 h-32 mb-6 border-2 border-qarawin-red/20">
-                    <AvatarImage src="" alt={chapter.name} />
+                    <AvatarImage src={chapter.image} alt={chapter.name} />
                     <AvatarFallback className="bg-qarawin-red/10 text-qarawin-red text-xl font-inter">
                       {chapter.initials}
                     </AvatarFallback>
