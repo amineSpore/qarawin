@@ -11,6 +11,10 @@ const HeroSection: React.FC = () => {
     document.getElementById('purpose')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToCommunity = () => {
+    document.getElementById('community')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (circleRedRef.current && circleWhiteRef.current) {
@@ -50,7 +54,10 @@ const HeroSection: React.FC = () => {
           </p>
           
           <div className="pt-8 animate-fade-in opacity-0" style={{ animationDelay: '0.6s' }}>
-            <Button className="bg-qarawin-red hover:bg-qarawin-red/90 text-white px-6 py-6 text-lg rounded-md shadow-lg transition-all duration-300 hover:shadow-qarawin-red/20 hover:shadow-xl hover:-translate-y-1 font-montreal">
+            <Button 
+              onClick={scrollToCommunity}
+              className="bg-qarawin-red hover:bg-qarawin-red/90 text-white px-6 py-6 text-lg rounded-md shadow-lg transition-all duration-300 hover:shadow-qarawin-red/20 hover:shadow-xl hover:-translate-y-1 font-montreal"
+            >
               Join Our Community
             </Button>
           </div>

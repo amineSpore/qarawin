@@ -19,7 +19,18 @@ const Navbar: React.FC = () => {
 
   const scrollToSection = (sectionId: string) => {
     setIsMobileMenuOpen(false);
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById(sectionId);
+    if (element) {
+      // Add offset to account for the fixed navbar
+      const offset = 80; 
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (

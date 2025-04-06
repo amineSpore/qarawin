@@ -10,8 +10,12 @@ const FoundersSection: React.FC = () => {
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.remove('hidden');
-            entry.target.classList.add('visible');
+            const elements = entry.target.querySelectorAll('.page-transition');
+            elements.forEach((el, index) => {
+              setTimeout(() => {
+                el.classList.remove('opacity-0', 'translate-y-10');
+              }, index * 150);
+            });
           }
         });
       },
@@ -22,14 +26,14 @@ const FoundersSection: React.FC = () => {
       }
     );
     
-    const elements = sectionRef.current?.querySelectorAll('.page-transition');
-    elements?.forEach(el => {
-      el.classList.add('hidden');
-      observer.observe(el);
-    });
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
     
     return () => {
-      elements?.forEach(el => observer.unobserve(el));
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
     };
   }, []);
 
@@ -54,7 +58,7 @@ const FoundersSection: React.FC = () => {
       
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16 page-transition">
+          <div className="text-center mb-16 page-transition opacity-0 translate-y-10 transition-all duration-700">
             <h2 className="text-3xl md:text-4xl font-inter font-bold text-qarawin-cream mb-4">Our Founders</h2>
             <div className="w-20 h-1 bg-qarawin-red mx-auto mb-6"></div>
             <p className="text-lg text-qarawin-cream/80 max-w-2xl mx-auto font-montreal">
@@ -64,7 +68,7 @@ const FoundersSection: React.FC = () => {
           
           <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {founders.map((founder, index) => (
-              <div className="page-transition" style={{ transitionDelay: `${index * 150}ms` }} key={founder.name}>
+              <div className="page-transition opacity-0 translate-y-10 transition-all duration-700" style={{ transitionDelay: `${index * 150}ms` }} key={founder.name}>
                 <div className="bg-qarawin-darkgray/60 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-qarawin-red/10 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] flex flex-col items-center">
                   <Avatar className="w-40 h-40 mb-6 border-2 border-qarawin-red/30">
                     <AvatarImage src="" alt={founder.name} />

@@ -14,29 +14,22 @@ const Index: React.FC = () => {
     // Smooth scrolling setup
     document.documentElement.style.scrollBehavior = 'smooth';
     
-    // Create intersection observer for page transitions
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('page-transition-visible');
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-      }
-    );
-    
-    // Observe all sections
-    document.querySelectorAll('section').forEach(section => {
-      observer.observe(section);
-    });
+    // Make sure sections are loaded correctly
+    const hash = window.location.hash;
+    if (hash) {
+      // Remove the # symbol
+      const id = hash.substring(1);
+      // Delayed execution to ensure the DOM is fully loaded
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 500);
+    }
     
     return () => {
-      observer.disconnect();
+      document.documentElement.style.scrollBehavior = 'auto';
     };
   }, []);
 
