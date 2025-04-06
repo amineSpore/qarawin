@@ -45,7 +45,7 @@ const AboutSection: React.FC = () => {
           </div>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="arabesque-border p-8 rounded-lg bg-qarawin-darkgray/80 backdrop-blur-sm shadow-xl shadow-qarawin-red/5 transform transition-all duration-500 hover:shadow-qarawin-red/10 hover:translate-y-[-5px] animate-on-scroll">
+            <div className="order-2 md:order-1 arabesque-border p-8 rounded-lg bg-qarawin-darkgray/80 backdrop-blur-sm shadow-xl shadow-qarawin-red/5 transform transition-all duration-500 hover:shadow-qarawin-red/10 hover:translate-y-[-5px] animate-on-scroll">
               <h3 className="text-2xl font-serif font-semibold text-qarawin-red mb-6 border-b border-qarawin-red/20 pb-3">The Qarawiyyin Legacy</h3>
               <p className="text-qarawin-cream mb-6 text-lg">
                 Named after Al Qarawiyyin University in Fez, Morocco — the world's oldest existing university founded in 859 AD — 
@@ -57,21 +57,38 @@ const AboutSection: React.FC = () => {
               </p>
             </div>
             
-            <div className="space-y-8 animate-on-scroll">
-              <div className="bg-qarawin-darkgray/80 backdrop-blur-sm p-8 rounded-lg shadow-xl shadow-qarawin-red/5 border border-qarawin-red/20 transform transition-all duration-500 hover:shadow-qarawin-red/10 hover:translate-y-[-5px]">
-                <h3 className="text-2xl font-serif font-semibold text-qarawin-cream mb-4 border-b border-qarawin-red/20 pb-3">Our Mission</h3>
-                <p className="text-qarawin-cream text-lg">
-                  To cultivate a thriving ecosystem that connects Moroccan scientists, researchers, and deeptech 
-                  entrepreneurs worldwide, fostering collaboration and innovation.
-                </p>
+            <div className="order-1 md:order-2 relative animate-on-scroll">
+              <div className="relative mx-auto w-full max-w-md rounded-lg overflow-hidden vintage-frame">
+                <img 
+                  src="/lovable-uploads/5a702ca1-ebc0-43ae-8ff4-4edb97822db5.png" 
+                  alt="Artisanal heritage of scientific exploration"
+                  className="w-full h-auto filter sepia-[0.2] contrast-[1.1]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-qarawin-black/70 to-transparent"></div>
+                <div className="absolute inset-0 border-[12px] border-qarawin-darkgray/40 box-border rounded"></div>
+                <div className="absolute inset-0 border-[1px] border-qarawin-red/20 box-border rounded"></div>
               </div>
-              
-              <div className="bg-qarawin-darkgray/80 backdrop-blur-sm p-8 rounded-lg shadow-xl shadow-qarawin-red/5 border border-qarawin-red/20 transform transition-all duration-500 hover:shadow-qarawin-red/10 hover:translate-y-[-5px]">
-                <h3 className="text-2xl font-serif font-semibold text-qarawin-cream mb-4 border-b border-qarawin-red/20 pb-3">Our Vision</h3>
-                <p className="text-qarawin-cream text-lg">
-                  To position Morocco as a global leader in scientific innovation and deeptech entrepreneurship, 
-                  building on our rich intellectual heritage while embracing cutting-edge technologies.
-                </p>
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 border-b-2 border-r-2 border-qarawin-red/20 rounded-br-lg hidden md:block"></div>
+              <div className="absolute -top-4 -left-4 w-32 h-32 border-t-2 border-l-2 border-qarawin-red/20 rounded-tl-lg hidden md:block"></div>
+            </div>
+            
+            <div className="col-span-1 md:col-span-2 space-y-8 animate-on-scroll mt-8">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-qarawin-darkgray/80 backdrop-blur-sm p-8 rounded-lg shadow-xl shadow-qarawin-red/5 border border-qarawin-red/20 transform transition-all duration-500 hover:shadow-qarawin-red/10 hover:translate-y-[-5px]">
+                  <h3 className="text-2xl font-serif font-semibold text-qarawin-cream mb-4 border-b border-qarawin-red/20 pb-3">Our Mission</h3>
+                  <p className="text-qarawin-cream text-lg">
+                    To cultivate a thriving ecosystem that connects Moroccan scientists, researchers, and deeptech 
+                    entrepreneurs worldwide, fostering collaboration and innovation.
+                  </p>
+                </div>
+                
+                <div className="bg-qarawin-darkgray/80 backdrop-blur-sm p-8 rounded-lg shadow-xl shadow-qarawin-red/5 border border-qarawin-red/20 transform transition-all duration-500 hover:shadow-qarawin-red/10 hover:translate-y-[-5px]">
+                  <h3 className="text-2xl font-serif font-semibold text-qarawin-cream mb-4 border-b border-qarawin-red/20 pb-3">Our Vision</h3>
+                  <p className="text-qarawin-cream text-lg">
+                    To position Morocco as a global leader in scientific innovation and deeptech entrepreneurship, 
+                    building on our rich intellectual heritage while embracing cutting-edge technologies.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
