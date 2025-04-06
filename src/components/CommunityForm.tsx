@@ -80,91 +80,86 @@ const CommunityForm: React.FC = () => {
   };
 
   return (
-    <section id="community-form" className="py-20 bg-qarawin-black relative">
+    <section id="community-form" className="py-16 bg-qarawin-black relative">
       <div className="absolute inset-0 bg-arabesque-pattern opacity-15"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-qarawin-black/95 to-qarawin-black/80"></div>
       
       <div className="container mx-auto px-6 md:px-12 z-10 relative">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12 animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-qarawin-cream mb-4">Join Our Community</h2>
-            <div className="w-20 h-1 bg-qarawin-red mx-auto mb-6"></div>
-            <p className="text-lg text-qarawin-cream/80 max-w-2xl mx-auto">
-              Be part of a growing network of Moroccan scientists and deeptech entrepreneurs
+        <div className="max-w-xl mx-auto">
+          <div className="text-center mb-8 animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-qarawin-cream mb-3">Join Our Community</h2>
+            <div className="w-16 h-1 bg-qarawin-red mx-auto mb-4"></div>
+            <p className="text-sm md:text-base text-qarawin-cream/80 max-w-md mx-auto">
+              Be part of our network of Moroccan scientists and entrepreneurs
             </p>
           </div>
           
-          <div className="bg-qarawin-darkgray/80 backdrop-blur-sm p-8 rounded-lg border border-qarawin-red/20 shadow-xl animate-fade-in opacity-0" style={{ animationDelay: '0.4s' }}>
+          <div className="bg-qarawin-darkgray/80 backdrop-blur-sm p-6 rounded-lg border border-qarawin-red/20 shadow-xl animate-fade-in opacity-0" style={{ animationDelay: '0.4s' }}>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-qarawin-cream">Name</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="Your name" 
-                          {...field} 
-                          className="border border-qarawin-red/20 bg-qarawin-black/50 text-qarawin-cream"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-qarawin-cream">Email</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="Your email address" 
-                          type="email" 
-                          {...field} 
-                          className="border border-qarawin-red/20 bg-qarawin-black/50 text-qarawin-cream"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-qarawin-cream text-sm">Name</FormLabel>
+                        <FormControl>
+                          <Input 
+                            placeholder="Your name" 
+                            {...field} 
+                            className="border border-qarawin-red/20 bg-qarawin-black/50 text-qarawin-cream h-9"
+                          />
+                        </FormControl>
+                        <FormMessage className="text-xs" />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-qarawin-cream text-sm">Email</FormLabel>
+                        <FormControl>
+                          <Input 
+                            placeholder="Your email address" 
+                            type="email" 
+                            {...field} 
+                            className="border border-qarawin-red/20 bg-qarawin-black/50 text-qarawin-cream h-9"
+                          />
+                        </FormControl>
+                        <FormMessage className="text-xs" />
+                      </FormItem>
+                    )}
+                  />
+                </div>
                 <FormField
                   control={form.control}
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-qarawin-cream">Message (Optional)</FormLabel>
+                      <FormLabel className="text-qarawin-cream text-sm">Message (Optional)</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Tell us about your interests" 
                           {...field} 
-                          className="min-h-32 border border-qarawin-red/20 bg-qarawin-black/50 text-qarawin-cream"
+                          className="min-h-24 border border-qarawin-red/20 bg-qarawin-black/50 text-qarawin-cream resize-none"
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-xs" />
                     </FormItem>
                   )}
                 />
                 <Button 
                   type="submit" 
-                  className="w-full bg-qarawin-red hover:bg-qarawin-red/90 text-white font-medium py-6 px-4 rounded-md transition-all"
+                  className="w-full bg-qarawin-red hover:bg-qarawin-red/90 text-white font-medium py-2 px-4 rounded-md transition-all"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Processing..." : "Join the Community"}
                 </Button>
               </form>
             </Form>
-          </div>
-          
-          {/* For website owners: Basic way to access submissions */}
-          <div className="mt-8 text-center opacity-0">
-            <p className="text-qarawin-cream/60 text-xs">
-              Website owners can access submissions in localStorage
-            </p>
           </div>
         </div>
       </div>
