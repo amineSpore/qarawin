@@ -71,9 +71,9 @@ const FoundersSection: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {founders.map((founder, index) => (
               <div className="page-transition opacity-0 translate-y-10 transition-all duration-700" style={{ transitionDelay: `${index * 150}ms` }} key={founder.name}>
-                <div className="bg-qarawin-darkgray/60 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-qarawin-red/10 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] flex flex-col items-center">
+                <div className="flex flex-col items-center">
                   <Avatar className="w-40 h-40 mb-6 border-2 border-qarawin-red/30">
-                    <AvatarImage src={founder.image} alt={founder.name} />
+                    <AvatarImage src={founder.image} alt={founder.name} className="grayscale object-cover" />
                     <AvatarFallback className="bg-qarawin-red/10 text-qarawin-red text-2xl font-inter">
                       {founder.initials}
                     </AvatarFallback>

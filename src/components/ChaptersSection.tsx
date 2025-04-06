@@ -95,9 +95,9 @@ const ChaptersSection: React.FC = () => {
                 style={{ transitionDelay: `${index * 100}ms` }}
                 key={chapter.name}
               >
-                <div className="bg-qarawin-darkgray/60 backdrop-blur-sm p-8 rounded-lg shadow-xl border border-qarawin-red/10 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] flex flex-col items-center">
+                <div className="flex flex-col items-center">
                   <Avatar className="w-32 h-32 mb-6 border-2 border-qarawin-red/20">
-                    <AvatarImage src={chapter.image} alt={chapter.name} />
+                    <AvatarImage src={chapter.image} alt={chapter.name} className="grayscale object-cover" />
                     <AvatarFallback className="bg-qarawin-red/10 text-qarawin-red text-xl font-inter">
                       {chapter.initials}
                     </AvatarFallback>
@@ -108,12 +108,6 @@ const ChaptersSection: React.FC = () => {
                 </div>
               </div>
             ))}
-          </div>
-          
-          <div className="mt-16 text-center page-transition opacity-0 translate-y-10 transition-all duration-700" style={{ transitionDelay: '500ms' }}>
-            <button className="bg-transparent hover:bg-qarawin-red/10 text-qarawin-red border border-qarawin-red/30 px-6 py-3 rounded-md transition-all duration-300 font-montreal">
-              Start a Local Chapter
-            </button>
           </div>
         </div>
       </div>

@@ -6,7 +6,6 @@ import PurposeSection from '@/components/PurposeSection';
 import AdvisorsSection from '@/components/AdvisorsSection';
 import FoundersSection from '@/components/FoundersSection';
 import ChaptersSection from '@/components/ChaptersSection';
-import CommunitySection from '@/components/CommunitySection';
 import Footer from '@/components/Footer';
 
 const Index: React.FC = () => {
@@ -42,7 +41,6 @@ const Index: React.FC = () => {
         <AdvisorsSection />
         <FoundersSection />
         <ChaptersSection />
-        <CommunitySection />
       </main>
       <Footer />
     </div>

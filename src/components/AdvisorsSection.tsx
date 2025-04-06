@@ -1,6 +1,5 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const AdvisorsSection: React.FC = () => {
@@ -104,21 +103,17 @@ const AdvisorsSection: React.FC = () => {
                 style={{ transitionDelay: `${index * 100}ms` }}
                 key={advisor.name}
               >
-                <Card className="border-qarawin-red/10 bg-qarawin-darkgray/60 backdrop-blur-sm overflow-hidden shadow-xl transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px]">
-                  <CardContent className="p-0">
-                    <div className="flex flex-col items-center p-8">
-                      <Avatar className="w-32 h-32 mb-6 border-2 border-qarawin-red/20">
-                        <AvatarImage src={advisor.image} alt={advisor.name} />
-                        <AvatarFallback className="bg-qarawin-red/10 text-qarawin-red text-xl font-inter">
-                          {advisor.initials}
-                        </AvatarFallback>
-                      </Avatar>
-                      <h3 className="text-xl font-inter font-bold text-qarawin-cream mb-2 text-center">{advisor.name}</h3>
-                      <p className="text-qarawin-red font-montreal font-medium mb-1 text-center">{advisor.title1}</p>
-                      <p className="text-qarawin-cream/70 font-montreal text-center">{advisor.title2}</p>
-                    </div>
-                  </CardContent>
-                </Card>
+                <div className="flex flex-col items-center">
+                  <Avatar className="w-32 h-32 mb-6 border-2 border-qarawin-red/20">
+                    <AvatarImage src={advisor.image} alt={advisor.name} className="grayscale object-cover" />
+                    <AvatarFallback className="bg-qarawin-red/10 text-qarawin-red text-xl font-inter">
+                      {advisor.initials}
+                    </AvatarFallback>
+                  </Avatar>
+                  <h3 className="text-xl font-inter font-bold text-qarawin-cream mb-2 text-center">{advisor.name}</h3>
+                  <p className="text-qarawin-red font-montreal font-medium mb-1 text-center">{advisor.title1}</p>
+                  <p className="text-qarawin-cream/70 font-montreal text-center">{advisor.title2}</p>
+                </div>
               </div>
             ))}
           </div>

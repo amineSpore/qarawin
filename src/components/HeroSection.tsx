@@ -1,16 +1,11 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { ChevronDown } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   const circleRedRef = useRef<HTMLDivElement>(null);
   const circleWhiteRef = useRef<HTMLDivElement>(null);
   
-  const scrollToAbout = () => {
-    document.getElementById('purpose')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   const scrollToCommunity = () => {
     document.getElementById('community')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -45,7 +40,7 @@ const HeroSection: React.FC = () => {
       
       <div className="container mx-auto px-6 md:px-12 z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-inter font-bold leading-tight animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
+          <h1 className="text-5xl md:text-8xl lg:text-9xl font-inter font-bold leading-tight animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
             <span className="block text-qarawin-red tracking-tight mb-4">QARAWIN</span>
           </h1>
           
@@ -60,16 +55,6 @@ const HeroSection: React.FC = () => {
             >
               Join Our Community
             </Button>
-          </div>
-          
-          <div className="pt-12 animate-fade-in opacity-0" style={{ animationDelay: '0.8s' }}>
-            <button 
-              onClick={scrollToAbout}
-              className="flex flex-col items-center text-qarawin-cream/60 hover:text-qarawin-red transition-colors duration-300 font-montreal"
-            >
-              <span className="text-sm mb-2">Discover Our Mission</span>
-              <ChevronDown className="animate-bounce" />
-            </button>
           </div>
         </div>
       </div>
