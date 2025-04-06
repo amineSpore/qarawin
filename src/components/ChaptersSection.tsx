@@ -67,6 +67,7 @@ const ChaptersSection: React.FC = () => {
       title1: "Asia",
       initials: "YE",
       image: null
+    }
   ];
 
   return (
