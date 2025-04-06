@@ -43,14 +43,14 @@ const FoundersSection: React.FC = () => {
       title1: "ENS Professor",
       title2: "DeepTech Investor",
       initials: "SD",
-      image: "/lovable-uploads/2f49c69d-8ded-4fde-a1da-e88150e75ca3.png"
+      image: "/lovable-uploads/e6be84d3-bc86-408a-809a-c0998ec436e2.png"
     },
     {
       name: "Amine Raji",
       title1: "Spore.bio CEO",
       title2: "DeepTech Founder",
       initials: "AR",
-      image: "/lovable-uploads/de4ea23a-afbc-455c-84fc-bed1686e50b8.png"
+      image: "/lovable-uploads/2f49c69d-8ded-4fde-a1da-e88150e75ca3.png"
     }
   ];
 
