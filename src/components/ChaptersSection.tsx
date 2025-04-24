@@ -84,15 +84,15 @@ const ChaptersSection: React.FC = () => {
             </p>
           </div>
           
-          <div className="flex flex-wrap justify-center items-start gap-8">
+          <div className="flex justify-center items-center gap-4 md:gap-8">
             {chapters.map((chapter, index) => (
               <div 
-                className="page-transition opacity-0 translate-y-10 transition-all duration-700 w-44"
+                className="page-transition opacity-0 translate-y-10 transition-all duration-700 w-32 md:w-40"
                 style={{ transitionDelay: `${index * 100}ms` }}
                 key={chapter.name}
               >
                 <div className="flex flex-col items-center">
-                  <Avatar className="w-32 h-32 mb-4 border-2 border-qarawin-red/20 overflow-hidden">
+                  <Avatar className="w-20 h-20 md:w-24 md:h-24 mb-3 border-2 border-qarawin-red/20 overflow-hidden">
                     <AvatarImage 
                       src={chapter.image} 
                       alt={chapter.name} 
@@ -102,8 +102,8 @@ const ChaptersSection: React.FC = () => {
                       {chapter.initials}
                     </AvatarFallback>
                   </Avatar>
-                  <h3 className="text-xl font-inter font-bold text-qarawin-cream mb-1 text-center">{chapter.name}</h3>
-                  <p className="text-qarawin-red font-inter font-medium mb-1 text-center">{chapter.title1}</p>
+                  <h3 className="text-base md:text-lg font-inter font-bold text-qarawin-cream mb-1 text-center">{chapter.name}</h3>
+                  <p className="text-sm md:text-base text-qarawin-red font-inter font-medium text-center">{chapter.title1}</p>
                 </div>
               </div>
             ))}
@@ -115,3 +115,4 @@ const ChaptersSection: React.FC = () => {
 };
 
 export default ChaptersSection;
+
