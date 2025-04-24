@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
@@ -96,7 +95,7 @@ const AdvisorsSection: React.FC = () => {
             </p>
           </div>
           
-          <div className="flex flex-wrap justify-center items-start gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
             {advisors.map((advisor, index) => (
               <div 
                 className="page-transition opacity-0 translate-y-10 transition-all duration-700 w-48" 
