@@ -95,7 +95,7 @@ const AdvisorsSection: React.FC = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+          <div className="grid grid-cols-3 gap-8 justify-items-center max-w-6xl mx-auto">
             {advisors.map((advisor, index) => (
               <div 
                 className="page-transition opacity-0 translate-y-10 transition-all duration-700 w-48" 
