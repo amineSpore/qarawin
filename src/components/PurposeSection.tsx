@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { UsersIcon, NewspaperIcon, HeartIcon } from 'lucide-react';
 import { Card } from '@/components/ui/card';
@@ -41,10 +40,8 @@ const PurposeSection: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-20 page-transition opacity-0 translate-y-10 transition-all duration-700">
             <h2 className="text-3xl md:text-5xl font-inter font-bold text-qarawin-cream mb-6">Our Mission & Heritage</h2>
-            <div className="w-24 h-1 bg-qarawin-red mx-auto mb-8"></div>
-            <p className="text-lg md:text-xl text-qarawin-cream/80 max-w-3xl mx-auto font-montreal leading-relaxed">
-              Drawing inspiration from Al-Qarawiyyin, the world's oldest university founded in Fez, we continue a legacy of knowledge that has illuminated minds for over twelve centuries.
-            </p>
+            
+            
           </div>
           
           {/* Why Qarawin Section */}
