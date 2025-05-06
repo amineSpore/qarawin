@@ -15,6 +15,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { Link } from 'lucide-react';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -23,7 +24,8 @@ const formSchema = z.object({
   email: z.string().email({
     message: "Please enter a valid email address.",
   }),
-  message: z.string().optional(),
+  link: z.string().optional(),
+  bio: z.string().optional(),
 });
 
 const CommunityForm: React.FC = () => {
@@ -35,7 +37,8 @@ const CommunityForm: React.FC = () => {
     defaultValues: {
       name: "",
       email: "",
-      message: "",
+      link: "",
+      bio: "",
     },
   });
 
@@ -136,13 +139,32 @@ const CommunityForm: React.FC = () => {
                 </div>
                 <FormField
                   control={form.control}
-                  name="message"
+                  name="link"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-qarawin-cream text-sm">Message (Optional)</FormLabel>
+                      <FormLabel className="text-qarawin-cream text-sm flex items-center gap-1">
+                        <Link className="h-4 w-4" /> Profile Link
+                      </FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="LinkedIn / GitHub / Google Scholar" 
+                          {...field} 
+                          className="border border-qarawin-red/20 bg-qarawin-black/50 text-qarawin-cream h-9"
+                        />
+                      </FormControl>
+                      <FormMessage className="text-xs" />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="bio"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-qarawin-cream text-sm">Short Biography (2-3 lines)</FormLabel>
                       <FormControl>
                         <Textarea 
-                          placeholder="Tell us about your interests" 
+                          placeholder="Tell us a bit about yourself and your background" 
                           {...field} 
                           className="min-h-24 border border-qarawin-red/20 bg-qarawin-black/50 text-qarawin-cream resize-none"
                         />

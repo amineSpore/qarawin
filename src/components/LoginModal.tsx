@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { X } from 'lucide-react';
+import { X, Link } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from "@/hooks/use-toast";
@@ -15,14 +15,15 @@ const SubmissionsViewer = () => {
   const exportToCsv = () => {
     if (submissions.length === 0) return;
     
-    const headers = ['Name', 'Email', 'Message', 'Date'];
+    const headers = ['Name', 'Email', 'Profile Link', 'Biography', 'Date'];
     const csvRows = [
       headers.join(','),
       ...submissions.map((s: any) => {
         return [
           `"${s.name.replace(/"/g, '""')}"`,
           `"${s.email.replace(/"/g, '""')}"`,
-          `"${s.message ? s.message.replace(/"/g, '""') : ''}"`,
+          `"${s.link ? s.link.replace(/"/g, '""') : ''}"`,
+          `"${s.bio ? s.bio.replace(/"/g, '""') : ''}"`,
           `"${new Date(s.date).toLocaleString().replace(/"/g, '""')}"`
         ].join(',');
       })
@@ -61,7 +62,8 @@ const SubmissionsViewer = () => {
               <tr className="border-b border-qarawin-red/20">
                 <th className="py-2 px-4 text-left text-qarawin-cream">Name</th>
                 <th className="py-2 px-4 text-left text-qarawin-cream">Email</th>
-                <th className="py-2 px-4 text-left text-qarawin-cream">Message</th>
+                <th className="py-2 px-4 text-left text-qarawin-cream">Profile Link</th>
+                <th className="py-2 px-4 text-left text-qarawin-cream">Biography</th>
                 <th className="py-2 px-4 text-left text-qarawin-cream">Date</th>
               </tr>
             </thead>
@@ -70,7 +72,20 @@ const SubmissionsViewer = () => {
                 <tr key={sub.id} className="border-b border-qarawin-red/10 hover:bg-qarawin-red/5">
                   <td className="py-2 px-4 text-qarawin-cream">{sub.name}</td>
                   <td className="py-2 px-4 text-qarawin-cream">{sub.email}</td>
-                  <td className="py-2 px-4 text-qarawin-cream text-sm max-w-[200px] truncate">{sub.message || '-'}</td>
+                  <td className="py-2 px-4 text-qarawin-cream">
+                    {sub.link ? (
+                      <a 
+                        href={sub.link.startsWith('http') ? sub.link : `https://${sub.link}`} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center text-qarawin-red hover:underline"
+                      >
+                        <Link size={14} className="mr-1" />
+                        Link
+                      </a>
+                    ) : '-'}
+                  </td>
+                  <td className="py-2 px-4 text-qarawin-cream text-sm max-w-[200px] truncate">{sub.bio || '-'}</td>
                   <td className="py-2 px-4 text-qarawin-cream text-sm">{new Date(sub.date).toLocaleString()}</td>
                 </tr>
               ))}
