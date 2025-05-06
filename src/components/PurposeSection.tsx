@@ -98,9 +98,8 @@ const PurposeSection: React.FC = () => {
                   <UsersIcon className="w-8 h-8 text-qarawin-red" />
                 </div>
                 <h3 className="text-xl font-inter font-bold text-qarawin-cream mb-4 text-center">Gather</h3>
-                <p className="text-qarawin-cream/90 font-montreal text-center flex-grow leading-relaxed">
-                  Unite the Moroccan scientific community across borders and disciplines to create a powerful network of collaboration and innovation.
-                </p>
+                <p className="text-qarawin-cream/90 font-montreal text-center flex-grow leading-relaxed">Connect the right people at the right time
+Smart intros, curated Slack groups, local chapters</p>
               </div>
             </div>
             
