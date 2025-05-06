@@ -68,8 +68,8 @@ const AdvisorsSection: React.FC = () => {
     },
     {
       name: "Khalil Amine",
-      title1: "Argonne distinguished fellow",
-      title2: "U Chicago professor",
+      title1: "Argonne & University of Chicago",
+      title2: "Distinguished fellow & professor",
       initials: "KA",
       image: "/lovable-uploads/a7122724-bf9f-4a23-b794-730d79c705dd.png"
     },
