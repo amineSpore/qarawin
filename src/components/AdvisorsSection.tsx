@@ -67,13 +67,13 @@ const AdvisorsSection: React.FC = () => {
     },
     {
       name: "Khalil Amine",
-      title1: "Argonne National Laboratory",
+      title1: "Argonne distinguished fellow & U chicago professor",
       title2: "Team Leader",
       initials: "KA",
       image: "/lovable-uploads/a7122724-bf9f-4a23-b794-730d79c705dd.png"
     },
     {
-      name: "Nadia Kamal",
+      name: "Nadia Kamal, PhD",
       title1: "Harmonie Mutuelle",
       title2: "Health and Innovation Director",
       initials: "NK",
