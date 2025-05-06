@@ -35,6 +35,14 @@ const Navbar: React.FC = () => {
     }
   };
 
+  const scrollToTop = () => {
+    setIsMobileMenuOpen(false);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <>
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -46,7 +54,10 @@ const Navbar: React.FC = () => {
           <div className="flex justify-between items-center">
             {/* QARAWIN logo on the left */}
             <div className="flex items-center">
-              <h1 className="text-sm font-inter font-bold">
+              <h1 
+                className="text-sm font-inter font-bold cursor-pointer"
+                onClick={scrollToTop}
+              >
                 <span className="text-qarawin-cream transition-colors duration-300 hover:text-qarawin-red">
                   QARAWIN
                 </span>
