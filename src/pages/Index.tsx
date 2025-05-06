@@ -8,6 +8,7 @@ import FoundersSection from '@/components/FoundersSection';
 import ChaptersSection from '@/components/ChaptersSection';
 import CommunityForm from '@/components/CommunityForm';
 import Footer from '@/components/Footer';
+import AboutSection from '@/components/AboutSection';
 
 const Index: React.FC = () => {
   useEffect(() => {
@@ -38,6 +39,7 @@ const Index: React.FC = () => {
       <Navbar />
       <main className="flex-1">
         <HeroSection />
+        <AboutSection />
         <PurposeSection />
         <AdvisorsSection />
         <FoundersSection />
