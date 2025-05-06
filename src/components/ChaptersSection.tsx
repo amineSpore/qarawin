@@ -70,6 +70,10 @@ const ChaptersSection: React.FC = () => {
     }
   ];
 
+  // Split chapters for mobile view
+  const topRow = chapters.slice(0, 3);
+  const bottomRow = chapters.slice(3);
+
   return (
     <section id="chapters" className="py-24 bg-qarawin-black relative" ref={sectionRef}>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIwIDQwYzExLjA0NiAwIDIwLTguOTU0IDIwLTIwUzMxLjA0NiAwIDIwIDBTMCA4Ljk1NCAwIDIwczguOTU0IDIwIDIwIDIwem0wLTNjOS4zOTEgMCAxNy03LjYwOSAxNy0xN1MyOS4zOTEgMyAyMCAzIDMgMTAuNjA5IDMgMjBzNy42MDkgMTcgMTcgMTd6IiBmaWxsPSIjY2EwMDEzIiBmaWxsLW9wYWNpdHk9Ii4wNSIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+')] opacity-20"></div>
@@ -84,15 +88,71 @@ const ChaptersSection: React.FC = () => {
             </p>
           </div>
           
-          <div className="flex justify-center items-center gap-4 md:gap-8">
+          {/* Mobile layout with 3+2 distribution */}
+          <div className="md:hidden flex flex-col space-y-6">
+            {/* Top row - 3 items */}
+            <div className="flex justify-center items-center gap-4">
+              {topRow.map((chapter, index) => (
+                <div 
+                  className="page-transition opacity-0 translate-y-10 transition-all duration-700 w-full max-w-[100px]"
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                  key={chapter.name}
+                >
+                  <div className="flex flex-col items-center">
+                    <Avatar className="w-20 h-20 mb-2 border-2 border-qarawin-red/20 overflow-hidden">
+                      <AvatarImage 
+                        src={chapter.image} 
+                        alt={chapter.name} 
+                        className="grayscale object-cover w-full h-full" 
+                      />
+                      <AvatarFallback className="bg-qarawin-red/10 text-qarawin-red text-xl font-inter">
+                        {chapter.initials}
+                      </AvatarFallback>
+                    </Avatar>
+                    <h3 className="text-base font-inter font-bold text-qarawin-cream mb-1 text-center">{chapter.name}</h3>
+                    <p className="text-sm text-qarawin-red font-inter font-medium text-center">{chapter.title1}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Bottom row - 2 items */}
+            <div className="flex justify-center items-center gap-8">
+              {bottomRow.map((chapter, index) => (
+                <div 
+                  className="page-transition opacity-0 translate-y-10 transition-all duration-700 w-full max-w-[100px]"
+                  style={{ transitionDelay: `${(index + topRow.length) * 100}ms` }}
+                  key={chapter.name}
+                >
+                  <div className="flex flex-col items-center">
+                    <Avatar className="w-20 h-20 mb-2 border-2 border-qarawin-red/20 overflow-hidden">
+                      <AvatarImage 
+                        src={chapter.image} 
+                        alt={chapter.name} 
+                        className="grayscale object-cover w-full h-full" 
+                      />
+                      <AvatarFallback className="bg-qarawin-red/10 text-qarawin-red text-xl font-inter">
+                        {chapter.initials}
+                      </AvatarFallback>
+                    </Avatar>
+                    <h3 className="text-base font-inter font-bold text-qarawin-cream mb-1 text-center">{chapter.name}</h3>
+                    <p className="text-sm text-qarawin-red font-inter font-medium text-center">{chapter.title1}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Desktop layout - all in one row */}
+          <div className="hidden md:flex justify-center items-center gap-8">
             {chapters.map((chapter, index) => (
               <div 
-                className="page-transition opacity-0 translate-y-10 transition-all duration-700 w-32 md:w-40"
+                className="page-transition opacity-0 translate-y-10 transition-all duration-700 w-40"
                 style={{ transitionDelay: `${index * 100}ms` }}
                 key={chapter.name}
               >
                 <div className="flex flex-col items-center">
-                  <Avatar className="w-20 h-20 md:w-24 md:h-24 mb-3 border-2 border-qarawin-red/20 overflow-hidden">
+                  <Avatar className="w-24 h-24 mb-3 border-2 border-qarawin-red/20 overflow-hidden">
                     <AvatarImage 
                       src={chapter.image} 
                       alt={chapter.name} 
@@ -102,8 +162,8 @@ const ChaptersSection: React.FC = () => {
                       {chapter.initials}
                     </AvatarFallback>
                   </Avatar>
-                  <h3 className="text-base md:text-lg font-inter font-bold text-qarawin-cream mb-1 text-center">{chapter.name}</h3>
-                  <p className="text-sm md:text-base text-qarawin-red font-inter font-medium text-center">{chapter.title1}</p>
+                  <h3 className="text-lg font-inter font-bold text-qarawin-cream mb-1 text-center">{chapter.name}</h3>
+                  <p className="text-base text-qarawin-red font-inter font-medium text-center">{chapter.title1}</p>
                 </div>
               </div>
             ))}
@@ -115,4 +175,3 @@ const ChaptersSection: React.FC = () => {
 };
 
 export default ChaptersSection;
-
