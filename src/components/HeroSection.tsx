@@ -46,7 +46,7 @@ const HeroSection: React.FC = () => {
             </h1>
           </div>
           
-          <p className="text-base md:text-xl font-montreal text-qarawin-cream/90 max-w-xl mx-auto animate-fade-in opacity-0 tracking-wide letter-spacing-wider" style={{ animationDelay: '0.4s' }}>
+          <p className="text-base md:text-xl font-montreal text-qarawin-cream/90 max-w-xl mx-auto animate-fade-in opacity-0 tracking-wide letter-spacing-wider whitespace-nowrap" style={{ animationDelay: '0.4s' }}>
             Building a community of Moroccan scientists and entrepreneurs
           </p>
           
