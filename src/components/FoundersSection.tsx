@@ -40,7 +40,7 @@ const FoundersSection: React.FC = () => {
   const founders = [
     {
       name: "Sofia Dahoune",
-      title1: "ENS Professor",
+      title1: "Lecturer & Advisor at ENS Ulm ",
       title2: "DeepTech Investor",
       initials: "SD",
       image: "/lovable-uploads/e6be84d3-bc86-408a-809a-c0998ec436e2.png"
