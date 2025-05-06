@@ -125,9 +125,8 @@ Smart intros, curated Slack groups, local chapters</p>
                   <HeartIcon className="w-8 h-8 text-qarawin-red" />
                 </div>
                 <h3 className="text-xl font-inter font-bold text-qarawin-cream mb-4 text-center">Encourage</h3>
-                <p className="text-qarawin-cream/90 font-montreal text-center flex-grow leading-relaxed">
-                  Inspire the next generation of Moroccan youth to pursue academic excellence and scientific innovation.
-                </p>
+                <p className="text-qarawin-cream/90 font-montreal text-center flex-grow leading-relaxed">Support those who want to build the next generation of impactful startups
+Mentorship and knowledge-sharing</p>
               </div>
             </div>
           </div>
