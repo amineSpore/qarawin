@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { UsersIcon, NewspaperIcon, HeartIcon } from 'lucide-react';
 import { Card } from '@/components/ui/card';
@@ -91,7 +92,7 @@ const PurposeSection: React.FC = () => {
             <div className="h-full" style={{
             transitionDelay: '0ms'
           }}>
-              <div className="backdrop-blur-sm p-8 rounded-lg shadow-xl transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] h-full flex flex-col bg-transparent">
+              <div className="backdrop-blur-sm p-8 rounded-lg shadow-xl transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] h-full flex flex-col bg-transparent border border-qarawin-red/30">
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-qarawin-red/10 mb-6 mx-auto">
                   <UsersIcon className="w-8 h-8 text-qarawin-red" />
                 </div>
@@ -104,7 +105,7 @@ Smart intros, curated Slack groups, local chapters</p>
             <div className="h-full" style={{
             transitionDelay: '150ms'
           }}>
-              <div className="backdrop-blur-sm p-8 rounded-lg shadow-xl transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] h-full flex flex-col bg-transparent">
+              <div className="backdrop-blur-sm p-8 rounded-lg shadow-xl transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] h-full flex flex-col bg-transparent border border-qarawin-red/30">
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-qarawin-red/10 mb-6 mx-auto">
                   <NewspaperIcon className="w-8 h-8 text-qarawin-red" />
                 </div>
@@ -117,7 +118,7 @@ Showcasing Moroccan scientists, builders &amp; founders</p>
             <div className="h-full" style={{
             transitionDelay: '300ms'
           }}>
-              <div className="backdrop-blur-sm p-8 rounded-lg shadow-xl transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] h-full flex flex-col bg-transparent">
+              <div className="backdrop-blur-sm p-8 rounded-lg shadow-xl transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] h-full flex flex-col bg-transparent border border-qarawin-red/30">
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-qarawin-red/10 mb-6 mx-auto">
                   <HeartIcon className="w-8 h-8 text-qarawin-red" />
                 </div>
