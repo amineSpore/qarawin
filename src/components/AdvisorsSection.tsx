@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
@@ -67,8 +68,8 @@ const AdvisorsSection: React.FC = () => {
     },
     {
       name: "Khalil Amine",
-      title1: "Argonne distinguished fellow & U chicago professor",
-      title2: "Team Leader",
+      title1: "Argonne distinguished fellow",
+      title2: "U Chicago professor",
       initials: "KA",
       image: "/lovable-uploads/a7122724-bf9f-4a23-b794-730d79c705dd.png"
     },
