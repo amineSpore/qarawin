@@ -111,9 +111,8 @@ Smart intros, curated Slack groups, local chapters</p>
                   <NewspaperIcon className="w-8 h-8 text-qarawin-red" />
                 </div>
                 <h3 className="text-xl font-inter font-bold text-qarawin-cream mb-4 text-center">Promote</h3>
-                <p className="text-qarawin-cream/90 font-montreal text-center flex-grow leading-relaxed">
-                  Elevate the visibility and impact of Moroccan scientists around the world, celebrating their achievements and contributions.
-                </p>
+                <p className="text-qarawin-cream/90 font-montreal text-center flex-grow leading-relaxed">Make this ecosystem visible
+Showcasing Moroccan scientists, builders &amp; founders</p>
               </div>
             </div>
             
