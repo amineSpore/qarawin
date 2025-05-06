@@ -19,6 +19,18 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when scrolling
+  useEffect(() => {
+    const handleScrollClose = () => {
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScrollClose);
+    return () => window.removeEventListener('scroll', handleScrollClose);
+  }, [isMobileMenuOpen]);
+
   const scrollToSection = (sectionId: string) => {
     setIsMobileMenuOpen(false);
     const element = document.getElementById(sectionId);
@@ -45,11 +57,13 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-qarawin-black/95 backdrop-blur-md shadow-md border-b border-qarawin-red/20' 
-          : 'bg-transparent'
-      }`}>
+      <nav 
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+          isScrolled 
+            ? 'bg-qarawin-black/95 backdrop-blur-md shadow-md border-b border-qarawin-red/20' 
+            : 'bg-transparent'
+        }`}
+      >
         <div className="container mx-auto px-4 md:px-6 py-4">
           <div className="flex justify-between items-center">
             {/* QARAWIN logo on the left */}
@@ -109,7 +123,8 @@ const Navbar: React.FC = () => {
               <div className="md:hidden">
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
-                  className="text-qarawin-cream hover:text-qarawin-red transition-colors"
+                  className="text-qarawin-cream hover:text-qarawin-red transition-colors p-1"
+                  aria-label="Toggle menu"
                 >
                   {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
@@ -118,32 +133,34 @@ const Navbar: React.FC = () => {
           </div>
         </div>
         
-        {/* Mobile Menu */}
-        <div className={`md:hidden bg-qarawin-darkgray/95 backdrop-blur-md transition-all duration-300 overflow-hidden ${
-          isMobileMenuOpen ? 'max-h-screen border-b border-qarawin-red/20' : 'max-h-0'
-        }`}>
+        {/* Mobile Menu - Updated for better mobile navigation */}
+        <div 
+          className={`md:hidden bg-qarawin-black/95 backdrop-blur-md transition-all duration-300 overflow-hidden ${
+            isMobileMenuOpen ? 'max-h-[300px]' : 'max-h-0'
+          } border-b border-qarawin-red/20`}
+        >
           <div className="container mx-auto px-6 py-4 space-y-4 font-inter font-bold">
             <button 
               onClick={() => scrollToSection('purpose')}
-              className="block w-full text-left py-2 text-qarawin-cream hover:text-qarawin-red transition-colors"
+              className="block w-full text-left py-3 px-2 text-qarawin-cream hover:text-qarawin-red transition-colors border-b border-qarawin-red/10"
             >
               Purpose
             </button>
             <button 
               onClick={() => scrollToSection('advisors')}
-              className="block w-full text-left py-2 text-qarawin-cream hover:text-qarawin-red transition-colors"
+              className="block w-full text-left py-3 px-2 text-qarawin-cream hover:text-qarawin-red transition-colors border-b border-qarawin-red/10"
             >
               Advisors
             </button>
             <button 
               onClick={() => scrollToSection('founders')}
-              className="block w-full text-left py-2 text-qarawin-cream hover:text-qarawin-red transition-colors"
+              className="block w-full text-left py-3 px-2 text-qarawin-cream hover:text-qarawin-red transition-colors border-b border-qarawin-red/10"
             >
               Founders
             </button>
             <button 
               onClick={() => scrollToSection('chapters')}
-              className="block w-full text-left py-2 text-qarawin-cream hover:text-qarawin-red transition-colors"
+              className="block w-full text-left py-3 px-2 text-qarawin-cream hover:text-qarawin-red transition-colors border-b border-qarawin-red/10"
             >
               Chapters
             </button>
@@ -152,9 +169,9 @@ const Navbar: React.FC = () => {
                 setIsMobileMenuOpen(false);
                 setIsLoginModalOpen(true);
               }}
-              className="flex items-center py-2 text-qarawin-cream hover:text-qarawin-red transition-colors"
+              className="flex items-center py-3 px-2 text-qarawin-cream hover:text-qarawin-red transition-colors w-full"
             >
-              <LogIn size={16} className="mr-1" />
+              <LogIn size={16} className="mr-2" />
               <span>Admin Login</span>
             </button>
           </div>

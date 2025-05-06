@@ -1,9 +1,11 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const FoundersSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -68,15 +70,15 @@ const FoundersSection: React.FC = () => {
             </p>
           </div>
           
-          <div className="flex justify-center items-start gap-16">
+          <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'} justify-center items-center gap-8 md:gap-16`}>
             {founders.map((founder, index) => (
               <div 
                 className="page-transition opacity-0 translate-y-10 transition-all duration-700 w-52" 
                 style={{ transitionDelay: `${index * 150}ms` }} 
                 key={founder.name}
               >
-                <div className="flex flex-col items-center">
-                  <Avatar className="w-40 h-40 mb-5 border-2 border-qarawin-red/30 overflow-hidden">
+                <div className="flex flex-col items-center mb-8 md:mb-0">
+                  <Avatar className="w-32 h-32 md:w-40 md:h-40 mb-5 border-2 border-qarawin-red/30 overflow-hidden">
                     <AvatarImage 
                       src={founder.image} 
                       alt={founder.name} 
@@ -86,7 +88,7 @@ const FoundersSection: React.FC = () => {
                       {founder.initials}
                     </AvatarFallback>
                   </Avatar>
-                  <h3 className="text-2xl font-inter font-bold text-qarawin-cream mb-2 text-center">{founder.name}</h3>
+                  <h3 className="text-xl md:text-2xl font-inter font-bold text-qarawin-cream mb-2 text-center">{founder.name}</h3>
                   <p className="text-qarawin-red font-montreal font-medium mb-1 text-center">{founder.title1}</p>
                   <p className="text-qarawin-cream/70 font-montreal text-center">{founder.title2}</p>
                 </div>
