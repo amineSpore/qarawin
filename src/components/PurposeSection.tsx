@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { UsersIcon, NewspaperIcon, HeartIcon } from 'lucide-react';
 import { Card } from '@/components/ui/card';
@@ -52,7 +53,7 @@ const PurposeSection: React.FC = () => {
         }}>
             <h3 className="text-2xl md:text-3xl font-inter font-bold text-qarawin-cream mb-4 text-center">Why Qarawin</h3>
             <div className="w-16 h-1 bg-qarawin-red mx-auto mb-6"></div>
-            <Card className="backdrop-blur-sm p-8 rounded-lg shadow-xl border-2 border-qarawin-red/70 mb-6 bg-transparent">
+            <div className="backdrop-blur-sm p-8 rounded-lg shadow-xl mb-6 bg-transparent">
               <p className="text-qarawin-cream/90 font-montreal mb-4 leading-relaxed text-center">
                 Morocco has a deep-rooted scientific heritage. From the founding of the world's oldest university, Al-Qarawiyyin, to contributions in cartography, astronomy, medicine, and more, Morocco has long been a land of knowledge and innovation. Scientific excellence is part of our DNA, but somewhere along the way, this legacy has faded into the background.
               </p>
@@ -65,7 +66,7 @@ const PurposeSection: React.FC = () => {
               <p className="text-qarawin-cream/90 font-montreal leading-relaxed text-center">
                 We aim to revive this spirit of curiosity, collaboration, and ambition by building a global community of Moroccan innovators.
               </p>
-            </Card>
+            </div>
           </div>
           
           {/* Our Mission Section */}
@@ -74,7 +75,7 @@ const PurposeSection: React.FC = () => {
         }}>
             <h3 className="text-2xl md:text-3xl font-inter font-bold text-qarawin-cream mb-4 text-center">Our Mission</h3>
             <div className="w-16 h-1 bg-qarawin-red mx-auto mb-6"></div>
-            <Card className="backdrop-blur-sm p-8 rounded-lg shadow-xl border-2 border-qarawin-red/70 mb-6 bg-transparent">
+            <div className="backdrop-blur-sm p-8 rounded-lg shadow-xl mb-6 bg-transparent">
               <p className="text-qarawin-cream/90 font-montreal mb-4 leading-relaxed font-bold text-center">
                 Qarawin is a community for Moroccan innovators worldwide.
               </p>
@@ -84,7 +85,7 @@ const PurposeSection: React.FC = () => {
               <p className="text-qarawin-cream/90 font-montreal leading-relaxed text-center">
                 If you're a founder, a researcher curious about entrepreneurship, or an investor looking to support ambitious science-based innovation, you're in the right place.
               </p>
-            </Card>
+            </div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-10 max-w-4xl mx-auto page-transition opacity-0 translate-y-10 transition-all duration-700" style={{
@@ -93,7 +94,7 @@ const PurposeSection: React.FC = () => {
             <div className="h-full" style={{
             transitionDelay: '0ms'
           }}>
-              <div className="backdrop-blur-sm p-8 rounded-lg shadow-xl border-2 border-qarawin-red/70 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] h-full flex flex-col bg-transparent">
+              <div className="backdrop-blur-sm p-8 rounded-lg shadow-xl transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] h-full flex flex-col bg-transparent">
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-qarawin-red/10 mb-6 mx-auto">
                   <UsersIcon className="w-8 h-8 text-qarawin-red" />
                 </div>
@@ -106,7 +107,7 @@ Smart intros, curated Slack groups, local chapters</p>
             <div className="h-full" style={{
             transitionDelay: '150ms'
           }}>
-              <div className="backdrop-blur-sm p-8 rounded-lg shadow-xl border-2 border-qarawin-red/70 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] h-full flex flex-col bg-transparent">
+              <div className="backdrop-blur-sm p-8 rounded-lg shadow-xl transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] h-full flex flex-col bg-transparent">
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-qarawin-red/10 mb-6 mx-auto">
                   <NewspaperIcon className="w-8 h-8 text-qarawin-red" />
                 </div>
@@ -119,7 +120,7 @@ Showcasing Moroccan scientists, builders &amp; founders</p>
             <div className="h-full" style={{
             transitionDelay: '300ms'
           }}>
-              <div className="backdrop-blur-sm p-8 rounded-lg shadow-xl border-2 border-qarawin-red/70 transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] h-full flex flex-col bg-transparent">
+              <div className="backdrop-blur-sm p-8 rounded-lg shadow-xl transform transition-all duration-500 hover:shadow-qarawin-red/15 hover:translate-y-[-5px] h-full flex flex-col bg-transparent">
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-qarawin-red/10 mb-6 mx-auto">
                   <HeartIcon className="w-8 h-8 text-qarawin-red" />
                 </div>
