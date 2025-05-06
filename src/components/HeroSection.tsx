@@ -47,7 +47,7 @@ const HeroSection: React.FC = () => {
           </div>
           
           <p className="text-base md:text-xl font-montreal text-qarawin-cream/90 max-w-xl mx-auto animate-fade-in opacity-0 tracking-wide letter-spacing-wider" style={{ animationDelay: '0.4s' }}>
-            Uniting Moroccan Scientists & Deeptech Entrepreneurs
+            Building a community of Moroccan scientists and entrepreneurs
           </p>
           
           <div className="pt-10 animate-fade-in opacity-0 flex justify-center" style={{ animationDelay: '0.6s' }}>
