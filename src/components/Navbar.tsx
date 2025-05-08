@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Menu, X, LogIn } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import LoginModal from './LoginModal';
-import QarawinLogo from './QarawinLogo';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -67,9 +66,8 @@ const Navbar: React.FC = () => {
       >
         <div className="container mx-auto px-4 md:px-6 py-4">
           <div className="flex justify-between items-center">
-            {/* QARAWIN logo on the left */}
+            {/* QARAWIN text on the left */}
             <div className="flex items-center space-x-2">
-              <QarawinLogo size={28} className="hidden md:flex" />
               <h1 
                 className="text-sm font-inter font-bold cursor-pointer"
                 onClick={scrollToTop}
