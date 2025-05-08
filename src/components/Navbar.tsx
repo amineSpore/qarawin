@@ -3,12 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, LogIn } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import LoginModal from './LoginModal';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -112,13 +110,13 @@ const Navbar: React.FC = () => {
 
             {/* Admin button on the right */}
             <div className="flex items-center space-x-4">
-              <button 
-                onClick={() => setIsLoginModalOpen(true)}
+              <Link 
+                to="/analytics"
                 className="hidden md:flex items-center text-qarawin-cream hover:text-qarawin-red transition-colors text-sm"
               >
                 <LogIn size={16} className="mr-1" />
                 <span>Admin</span>
-              </button>
+              </Link>
               
               <div className="md:hidden">
                 <button
@@ -164,21 +162,16 @@ const Navbar: React.FC = () => {
             >
               Chapters
             </button>
-            <button 
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                setIsLoginModalOpen(true);
-              }}
+            <Link 
+              to="/analytics"
               className="flex items-center py-3 px-2 text-qarawin-cream hover:text-qarawin-red transition-colors w-full"
             >
               <LogIn size={16} className="mr-2" />
               <span>Admin Login</span>
-            </button>
+            </Link>
           </div>
         </div>
       </nav>
-      
-      <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
     </>
   );
 };
