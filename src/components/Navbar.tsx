@@ -106,6 +106,13 @@ const Navbar: React.FC = () => {
                 Chapters
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-qarawin-red transition-all duration-300 group-hover:w-full"></span>
               </button>
+              <button 
+                onClick={() => scrollToSection('community-form')} 
+                className="font-bold text-qarawin-cream hover:text-qarawin-red transition-colors relative group"
+              >
+                Join Us
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-qarawin-red transition-all duration-300 group-hover:w-full"></span>
+              </button>
             </div>
 
             {/* Admin button on the right */}
@@ -134,7 +141,7 @@ const Navbar: React.FC = () => {
         {/* Mobile Menu - Updated for better mobile navigation */}
         <div 
           className={`md:hidden bg-qarawin-black/95 backdrop-blur-md transition-all duration-300 overflow-hidden ${
-            isMobileMenuOpen ? 'max-h-[300px]' : 'max-h-0'
+            isMobileMenuOpen ? 'max-h-[350px]' : 'max-h-0'
           } border-b border-qarawin-red/20`}
         >
           <div className="container mx-auto px-6 py-4 space-y-4 font-inter font-bold">
@@ -161,6 +168,12 @@ const Navbar: React.FC = () => {
               className="block w-full text-left py-3 px-2 text-qarawin-cream hover:text-qarawin-red transition-colors border-b border-qarawin-red/10"
             >
               Chapters
+            </button>
+            <button 
+              onClick={() => scrollToSection('community-form')}
+              className="block w-full text-left py-3 px-2 text-qarawin-cream hover:text-qarawin-red transition-colors border-b border-qarawin-red/10"
+            >
+              Join Us
             </button>
             <Link 
               to="/analytics"
