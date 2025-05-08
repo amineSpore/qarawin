@@ -6,6 +6,9 @@ import { Button } from '@/components/ui/button';
 const CommunityForm: React.FC = () => {
   const isMobile = useIsMobile();
   const [isFormLoaded, setIsFormLoaded] = useState(false);
+  
+  // Direct URL to the same Typeform that's embedded
+  const typeformUrl = "https://form.typeform.com/to/AB7925RH9XEQMA6";
 
   useEffect(() => {
     // Load the Typeform embed script
@@ -50,7 +53,7 @@ const CommunityForm: React.FC = () => {
               ) : (
                 <>
                   <a 
-                    href="https://t.co/hWlJ3Zxsq8" 
+                    href={typeformUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="block w-full"
