@@ -48,7 +48,7 @@ const AdvisorsSection: React.FC = () => {
       image: "/lovable-uploads/54d04da9-172e-45f1-8293-d228bdb332a6.png"
     },
     {
-      name: "Youssef Laghzioui",
+      name: "Yassine Laghzioui",
       title1: "UM6P Ventures",
       title2: "General Partner",
       initials: "YL",
