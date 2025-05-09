@@ -3,18 +3,23 @@ import { useEffect } from 'react';
 
 const ViewTracker: React.FC = () => {
   useEffect(() => {
-    // Get current count from localStorage
-    const storedCount = localStorage.getItem('qarawin-view-count');
-    const count = storedCount ? parseInt(storedCount, 10) : 0;
+    // Get current counts from localStorage
+    const storedViewCount = localStorage.getItem('qarawin-view-count');
+    const storedSubmissionCount = localStorage.getItem('communitySubmissions');
     
-    // Increment count
-    const newCount = count + 1;
+    // Parse counts
+    const viewCount = storedViewCount ? parseInt(storedViewCount, 10) : 0;
+    const submissions = storedSubmissionCount ? JSON.parse(storedSubmissionCount) : [];
     
-    // Store updated count
-    localStorage.getItem('qarawin-view-count') !== newCount.toString() && 
-      localStorage.setItem('qarawin-view-count', newCount.toString());
+    // Increment view count
+    const newViewCount = viewCount + 1;
     
-    console.log('Page view recorded:', newCount);
+    // Store updated view count
+    localStorage.getItem('qarawin-view-count') !== newViewCount.toString() && 
+      localStorage.setItem('qarawin-view-count', newViewCount.toString());
+    
+    console.log('Page view recorded:', newViewCount);
+    console.log('Total submissions:', submissions.length);
   }, []);
   
   // This component doesn't render anything

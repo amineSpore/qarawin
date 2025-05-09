@@ -1,29 +1,35 @@
 
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Activity, Users, RefreshCw } from 'lucide-react';
+import { Activity, Users, RefreshCw, ClipboardList } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 
 const Analytics: React.FC = () => {
   const [viewCount, setViewCount] = useState<number>(0);
+  const [entryCount, setEntryCount] = useState<number>(0);
   const { toast } = useToast();
   
-  const refreshViewCount = () => {
-    // Get current count from localStorage
-    const storedCount = localStorage.getItem('qarawin-view-count');
-    const count = storedCount ? parseInt(storedCount, 10) : 0;
+  const refreshData = () => {
+    // Get current counts from localStorage
+    const storedViewCount = localStorage.getItem('qarawin-view-count');
+    const storedSubmissions = localStorage.getItem('communitySubmissions');
     
-    setViewCount(count);
+    // Parse counts
+    const views = storedViewCount ? parseInt(storedViewCount, 10) : 0;
+    const submissions = storedSubmissions ? JSON.parse(storedSubmissions) : [];
+    
+    setViewCount(views);
+    setEntryCount(submissions.length);
     
     toast({
       title: "Analytics Refreshed",
-      description: "View count has been updated with the latest data.",
+      description: "View and entry counts have been updated with the latest data.",
     });
   };
   
   useEffect(() => {
-    refreshViewCount();
+    refreshData();
   }, []);
   
   return (
@@ -32,7 +38,7 @@ const Analytics: React.FC = () => {
         <h1 className="text-4xl font-serif font-bold text-qarawin-red">Qarawin Analytics</h1>
         <Button 
           variant="outline" 
-          onClick={refreshViewCount} 
+          onClick={refreshData} 
           className="flex items-center gap-2 text-qarawin-cream border-qarawin-red/30 hover:bg-qarawin-red/10"
         >
           <RefreshCw size={16} />
@@ -40,7 +46,7 @@ const Analytics: React.FC = () => {
         </Button>
       </div>
       
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-3 gap-6">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <div className="space-y-1">
@@ -51,6 +57,19 @@ const Analytics: React.FC = () => {
           </CardHeader>
           <CardContent>
             <div className="text-3xl font-bold">{viewCount}</div>
+          </CardContent>
+        </Card>
+        
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between pb-2">
+            <div className="space-y-1">
+              <CardTitle>Total Form Entries</CardTitle>
+              <CardDescription>Number of community form submissions</CardDescription>
+            </div>
+            <ClipboardList className="h-6 w-6 text-qarawin-red" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-3xl font-bold">{entryCount}</div>
           </CardContent>
         </Card>
         
