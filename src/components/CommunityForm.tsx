@@ -7,8 +7,8 @@ const CommunityForm: React.FC = () => {
   const isMobile = useIsMobile();
   const [isFormLoaded, setIsFormLoaded] = useState(false);
   
-  // Direct URL to the same Typeform that's embedded
-  const typeformUrl = "https://form.typeform.com/to/AB7925RH9XEQMA6";
+  // Direct URL to the Typeform
+  const typeformUrl = "https://form.typeform.com/to/TLFInJU2";
 
   useEffect(() => {
     // Load the Typeform embed script
