@@ -11,7 +11,8 @@ const ViewTracker: React.FC = () => {
     const newCount = count + 1;
     
     // Store updated count
-    localStorage.setItem('qarawin-view-count', newCount.toString());
+    localStorage.getItem('qarawin-view-count') !== newCount.toString() && 
+      localStorage.setItem('qarawin-view-count', newCount.toString());
     
     console.log('Page view recorded:', newCount);
   }, []);

@@ -1,22 +1,44 @@
 
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Activity, Users } from 'lucide-react';
+import { Activity, Users, RefreshCw } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useToast } from '@/hooks/use-toast';
 
 const Analytics: React.FC = () => {
   const [viewCount, setViewCount] = useState<number>(0);
+  const { toast } = useToast();
   
-  useEffect(() => {
+  const refreshViewCount = () => {
     // Get current count from localStorage
     const storedCount = localStorage.getItem('qarawin-view-count');
     const count = storedCount ? parseInt(storedCount, 10) : 0;
     
     setViewCount(count);
+    
+    toast({
+      title: "Analytics Refreshed",
+      description: "View count has been updated with the latest data.",
+    });
+  };
+  
+  useEffect(() => {
+    refreshViewCount();
   }, []);
   
   return (
     <div className="container mx-auto py-8 px-4">
-      <h1 className="text-4xl font-serif font-bold mb-8 text-center text-qarawin-red">Qarawin Analytics</h1>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-4xl font-serif font-bold text-qarawin-red">Qarawin Analytics</h1>
+        <Button 
+          variant="outline" 
+          onClick={refreshViewCount} 
+          className="flex items-center gap-2 text-qarawin-cream border-qarawin-red/30 hover:bg-qarawin-red/10"
+        >
+          <RefreshCw size={16} />
+          Refresh Data
+        </Button>
+      </div>
       
       <div className="grid md:grid-cols-2 gap-6">
         <Card>
