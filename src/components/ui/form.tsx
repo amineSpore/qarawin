@@ -34,13 +34,16 @@ export default function QarawinForm() {
   const [status, setStatus] = useState<null | "success" | "error">(null);
   const [submitting, setSubmitting] = useState(false);
 
+  // Only for text/email/url input fields
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value, type } = e.target;
+    if (type === "checkbox") return; // checkboxes are handled separately!
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
+  // For checkboxes (arrays)
   const handleCheckboxChange = (name: "youAre" | "interests", opt: string, checked: boolean) => {
     setForm((prev) => ({
       ...prev,
@@ -53,7 +56,6 @@ export default function QarawinForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Manual validation for all required fields
     if (
       !form.firstName ||
       !form.lastName ||
@@ -71,7 +73,7 @@ export default function QarawinForm() {
     setStatus(null);
 
     try {
-      const response = await fetch("https://script.google.com/a/macros/spore.bio/s/AKfycby1bVLVzoVUe7zOyOV1bxUHCgMMVZuijyNiWzLo1qQz-QjvsfnKJC0mgW3E-Jd_mJ1JUw/exec", {
+      const response = await fetch("YOUR_WEB_APP_URL", {
         method: "POST",
         body: JSON.stringify({
           ...form,
@@ -84,7 +86,7 @@ export default function QarawinForm() {
       if (data.result === "success") {
         setStatus("success");
         setForm(initialState);
-        setTimeout(() => setStatus(null), 20000); // Hide message after 20 seconds
+        setTimeout(() => setStatus(null), 20000);
       } else {
         setStatus("error");
       }
