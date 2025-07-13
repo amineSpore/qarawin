@@ -71,7 +71,7 @@ export default function QarawinForm() {
     setStatus(null);
 
     try {
-      const response = await fetch("YOUR_WEB_APP_URL", {
+      const response = await fetch("https://script.google.com/a/macros/spore.bio/s/AKfycby1bVLVzoVUe7zOyOV1bxUHCgMMVZuijyNiWzLo1qQz-QjvsfnKJC0mgW3E-Jd_mJ1JUw/exec", {
         method: "POST",
         body: JSON.stringify({
           ...form,
