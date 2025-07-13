@@ -34,12 +34,20 @@ export default function QarawinForm() {
   const [status, setStatus] = useState<null | "success" | "error">(null);
   const [submitting, setSubmitting] = useState(false);
 
-  // No change needed for handleChange
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    const { name, value } = e.target;
+    const { name, value, type } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleCheckboxChange = (name: "youAre" | "interests", opt: string, checked: boolean) => {
+    setForm((prev) => ({
+      ...prev,
+      [name]: checked
+        ? [...prev[name], opt]
+        : prev[name].filter((v: string) => v !== opt),
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -63,7 +71,7 @@ export default function QarawinForm() {
     setStatus(null);
 
     try {
-      const response = await fetch("https://script.google.com/a/macros/spore.bio/s/AKfycby1bVLVzoVUe7zOyOV1bxUHCgMMVZuijyNiWzLo1qQz-QjvsfnKJC0mgW3E-Jd_mJ1JUw/exec", {
+      const response = await fetch("YOUR_WEB_APP_URL", {
         method: "POST",
         body: JSON.stringify({
           ...form,
@@ -131,10 +139,11 @@ export default function QarawinForm() {
           placeholder="Company"
           className="p-3 rounded bg-neutral-800 placeholder-neutral-400"
         />
+
         {/* YOU ARE CHECKBOXES */}
         <div>
           <label className="block mb-1 font-semibold">You are</label>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-col gap-2">
             {youAreOptions.map((opt) => (
               <label key={opt} className="flex items-center gap-2">
                 <input
@@ -142,15 +151,9 @@ export default function QarawinForm() {
                   name="youAre"
                   value={opt}
                   checked={form.youAre.includes(opt)}
-                  onChange={(e) => {
-                    const checked = e.target.checked;
-                    setForm((prev) => ({
-                      ...prev,
-                      youAre: checked
-                        ? [...prev.youAre, opt]
-                        : prev.youAre.filter((v) => v !== opt),
-                    }));
-                  }}
+                  onChange={(e) =>
+                    handleCheckboxChange("youAre", opt, e.target.checked)
+                  }
                   className="accent-qarawin-red"
                 />
                 {opt}
@@ -158,26 +161,21 @@ export default function QarawinForm() {
             ))}
           </div>
         </div>
+
         {/* INTERESTS CHECKBOXES */}
         <div>
+          <label className="block mb-1 font-semibold">Your interests</label>
           <div className="flex flex-col gap-2">
-            {options.map(opt => (
-      <label key={opt} className="flex items-center gap-2">
+            {interestOptions.map((opt) => (
               <label key={opt} className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   name="interests"
                   value={opt}
                   checked={form.interests.includes(opt)}
-                  onChange={(e) => {
-                    const checked = e.target.checked;
-                    setForm((prev) => ({
-                      ...prev,
-                      interests: checked
-                        ? [...prev.interests, opt]
-                        : prev.interests.filter((v) => v !== opt),
-                    }));
-                  }}
+                  onChange={(e) =>
+                    handleCheckboxChange("interests", opt, e.target.checked)
+                  }
                   className="accent-qarawin-red"
                 />
                 {opt}
@@ -185,6 +183,7 @@ export default function QarawinForm() {
             ))}
           </div>
         </div>
+
         <input
           name="linkedin"
           value={form.linkedin}
@@ -202,6 +201,7 @@ export default function QarawinForm() {
           placeholder="Location"
           className="p-3 rounded bg-neutral-800 placeholder-neutral-400"
         />
+
         <button
           type="submit"
           disabled={submitting}
