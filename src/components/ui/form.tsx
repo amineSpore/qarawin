@@ -67,7 +67,7 @@ export default function QarawinForm() {
     setStatus(null);
 
     try {
-      const response = await fetch("YOUR_WEB_APP_URL", {
+      const response = await fetch("https://script.google.com/u/0/home/projects/1tBL3JGv1cBM062gAh28KPGzCUUo5OPH4DCRDqqigzN6YervDTUZNVrcF/edit", {
         method: "POST",
         body: JSON.stringify({
           ...form,
