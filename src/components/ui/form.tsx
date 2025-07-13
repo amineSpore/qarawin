@@ -160,9 +160,9 @@ export default function QarawinForm() {
         </div>
         {/* INTERESTS CHECKBOXES */}
         <div>
-          <label className="block mb-1 font-semibold">Your interests</label>
-          <div className="flex flex-wrap gap-2">
-            {interestOptions.map((opt) => (
+          <div className="flex flex-col gap-2">
+            {options.map(opt => (
+      <label key={opt} className="flex items-center gap-2">
               <label key={opt} className="flex items-center gap-2">
                 <input
                   type="checkbox"
