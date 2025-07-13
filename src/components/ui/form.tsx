@@ -1,176 +1,198 @@
-import * as React from "react"
-import * as LabelPrimitive from "@radix-ui/react-label"
-import { Slot } from "@radix-ui/react-slot"
-import {
-  Controller,
-  ControllerProps,
-  FieldPath,
-  FieldValues,
-  FormProvider,
-  useFormContext,
-} from "react-hook-form"
+import React, { useState } from "react";
 
-import { cn } from "@/lib/utils"
-import { Label } from "@/components/ui/label"
+const initialState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  company: "",
+  youAre: "",
+  interests: [],
+  linkedin: "",
+  location: "",
+};
 
-const Form = FormProvider
+const youAreOptions = [
+  "Deeptech founder",
+  "STEM student",
+  "Deeptech investor",
+  "Researcher/scientist",
+];
 
-type FormFieldContextValue<
-  TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
-> = {
-  name: TName
-}
+const interestOptions = [
+  "Biotech/Health",
+  "Quantum",
+  "AI",
+  "Climate / Greentech",
+  "Agritech",
+  "Spacetech",
+  "Advanced materials/manufacturing",
+  "Computing infrastructure",
+];
 
-const FormFieldContext = React.createContext<FormFieldContextValue>(
-  {} as FormFieldContextValue
-)
+export default function QarawinForm() {
+  const [form, setForm] = useState(initialState);
+  const [status, setStatus] = useState<null | "success" | "error">(null);
+  const [submitting, setSubmitting] = useState(false);
 
-const FormField = <
-  TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
->({
-  ...props
-}: ControllerProps<TFieldValues, TName>) => {
-  return (
-    <FormFieldContext.Provider value={{ name: props.name }}>
-      <Controller {...props} />
-    </FormFieldContext.Provider>
-  )
-}
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    if (type === "select-multiple") {
+      const selected = Array.from((e.target as HTMLSelectElement).selectedOptions).map(
+        (option) => option.value
+      );
+      setForm((prev) => ({ ...prev, [name]: selected }));
+    } else {
+      setForm((prev) => ({ ...prev, [name]: value }));
+    }
+  };
 
-const useFormField = () => {
-  const fieldContext = React.useContext(FormFieldContext)
-  const itemContext = React.useContext(FormItemContext)
-  const { getFieldState, formState } = useFormContext()
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  const fieldState = getFieldState(fieldContext.name, formState)
+    // Validate required fields
+    if (
+      !form.firstName ||
+      !form.lastName ||
+      !form.email ||
+      !form.company ||
+      !form.youAre ||
+      !form.interests.length ||
+      !form.location
+    ) {
+      setStatus("error");
+      return;
+    }
 
-  if (!fieldContext) {
-    throw new Error("useFormField should be used within <FormField>")
-  }
+    setSubmitting(true);
+    setStatus(null);
 
-  const { id } = itemContext
-
-  return {
-    id,
-    name: fieldContext.name,
-    formItemId: `${id}-form-item`,
-    formDescriptionId: `${id}-form-item-description`,
-    formMessageId: `${id}-form-item-message`,
-    ...fieldState,
-  }
-}
-
-type FormItemContextValue = {
-  id: string
-}
-
-const FormItemContext = React.createContext<FormItemContextValue>(
-  {} as FormItemContextValue
-)
-
-const FormItem = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
-  const id = React.useId()
-
-  return (
-    <FormItemContext.Provider value={{ id }}>
-      <div ref={ref} className={cn("space-y-2", className)} {...props} />
-    </FormItemContext.Provider>
-  )
-})
-FormItem.displayName = "FormItem"
-
-const FormLabel = React.forwardRef<
-  React.ElementRef<typeof LabelPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
->(({ className, ...props }, ref) => {
-  const { error, formItemId } = useFormField()
-
-  return (
-    <Label
-      ref={ref}
-      className={cn(error && "text-destructive", className)}
-      htmlFor={formItemId}
-      {...props}
-    />
-  )
-})
-FormLabel.displayName = "FormLabel"
-
-const FormControl = React.forwardRef<
-  React.ElementRef<typeof Slot>,
-  React.ComponentPropsWithoutRef<typeof Slot>
->(({ ...props }, ref) => {
-  const { error, formItemId, formDescriptionId, formMessageId } = useFormField()
-
-  return (
-    <Slot
-      ref={ref}
-      id={formItemId}
-      aria-describedby={
-        !error
-          ? `${formDescriptionId}`
-          : `${formDescriptionId} ${formMessageId}`
+    try {
+      const response = await fetch("YOUR_WEB_APP_URL", {
+        method: "POST",
+        body: JSON.stringify({
+          ...form,
+          interests: form.interests.join(", "),
+        }),
+        headers: { "Content-Type": "application/json" },
+      });
+      const data = await response.json();
+      if (data.result === "success") {
+        setStatus("success");
+        setForm(initialState);
+      } else {
+        setStatus("error");
       }
-      aria-invalid={!!error}
-      {...props}
-    />
-  )
-})
-FormControl.displayName = "FormControl"
-
-const FormDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => {
-  const { formDescriptionId } = useFormField()
+    } catch {
+      setStatus("error");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
-    <p
-      ref={ref}
-      id={formDescriptionId}
-      className={cn("text-sm text-muted-foreground", className)}
-      {...props}
-    />
-  )
-})
-FormDescription.displayName = "FormDescription"
-
-const FormMessage = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, children, ...props }, ref) => {
-  const { error, formMessageId } = useFormField()
-  const body = error ? String(error?.message) : children
-
-  if (!body) {
-    return null
-  }
-
-  return (
-    <p
-      ref={ref}
-      id={formMessageId}
-      className={cn("text-sm font-medium text-destructive", className)}
-      {...props}
-    >
-      {body}
-    </p>
-  )
-})
-FormMessage.displayName = "FormMessage"
-
-export {
-  useFormField,
-  Form,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormDescription,
-  FormMessage,
-  FormField,
+    <div className="max-w-lg mx-auto p-6 bg-neutral-900 rounded-lg shadow-xl text-neutral-100">
+      <h2 className="text-2xl font-semibold mb-4 text-center">Join the Qarawin Community</h2>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div className="flex gap-4">
+          <input
+            name="firstName"
+            value={form.firstName}
+            onChange={handleChange}
+            required
+            type="text"
+            placeholder="First name"
+            className="flex-1 p-3 rounded bg-neutral-800 placeholder-neutral-400"
+          />
+          <input
+            name="lastName"
+            value={form.lastName}
+            onChange={handleChange}
+            required
+            type="text"
+            placeholder="Last name"
+            className="flex-1 p-3 rounded bg-neutral-800 placeholder-neutral-400"
+          />
+        </div>
+        <input
+          name="email"
+          value={form.email}
+          onChange={handleChange}
+          required
+          type="email"
+          placeholder="Email"
+          className="p-3 rounded bg-neutral-800 placeholder-neutral-400"
+        />
+        <input
+          name="company"
+          value={form.company}
+          onChange={handleChange}
+          required
+          type="text"
+          placeholder="Company"
+          className="p-3 rounded bg-neutral-800 placeholder-neutral-400"
+        />
+        <select
+          name="youAre"
+          value={form.youAre}
+          onChange={handleChange}
+          required
+          className="p-3 rounded bg-neutral-800 text-neutral-100"
+        >
+          <option value="">You are...</option>
+          {youAreOptions.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
+          ))}
+        </select>
+        <select
+          name="interests"
+          multiple
+          value={form.interests}
+          onChange={handleChange}
+          required
+          className="p-3 rounded bg-neutral-800 text-neutral-100 h-32"
+        >
+          {interestOptions.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
+          ))}
+        </select>
+        <input
+          name="linkedin"
+          value={form.linkedin}
+          onChange={handleChange}
+          type="url"
+          placeholder="LinkedIn (optional)"
+          className="p-3 rounded bg-neutral-800 placeholder-neutral-400"
+        />
+        <input
+          name="location"
+          value={form.location}
+          onChange={handleChange}
+          required
+          type="text"
+          placeholder="Location"
+          className="p-3 rounded bg-neutral-800 placeholder-neutral-400"
+        />
+        <button
+          type="submit"
+          disabled={submitting}
+          className="bg-neutral-700 hover:bg-neutral-600 text-white font-semibold py-3 rounded transition"
+        >
+          {submitting ? "Submitting..." : "Submit"}
+        </button>
+        {status === "success" && (
+          <div className="text-green-400 text-center">Thank you for your submission!</div>
+        )}
+        {status === "error" && (
+          <div className="text-red-400 text-center">Please fill in all required fields.</div>
+        )}
+      </form>
+      <p className="text-xs text-neutral-500 mt-4 text-center">
+        All fields are required except LinkedIn.
+      </p>
+    </div>
+  );
 }
