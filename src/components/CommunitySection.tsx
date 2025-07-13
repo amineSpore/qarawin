@@ -107,12 +107,18 @@ const CommunitySection: React.FC = () => {
                 Sign up now to become part of the first community of Moroccan scientists and deeptech entrepreneurs.
               </p>
               <iframe 
-                className="airtable-embed w-full" 
-                src="https://airtable.com/embed/apppsIb2CeO5bX7az/pagpguK4rclHtkMus/form" 
+                className="airtable-embed w-full min-h-[533px] rounded-md" 
+                src="https://airtable.com/embed/appzu6j4P0kEhxuLu/paglgZw3KFAUaJcIJ/form" 
                 frameBorder="0" 
                 width="100%" 
                 height="533" 
-                style={{background: 'transparent', border: '1px solid #ccc'}}
+                style={{
+                  background: 'transparent', 
+                  border: '1px solid #ccc',
+                  minHeight: '533px'
+                }}
+                loading="lazy"
+                title="Qarawin Community Form"
               />
             </div>
             
