@@ -101,7 +101,7 @@ const CommunitySection: React.FC = () => {
           </div>
           
           <div className="mt-16 text-center animate-on-scroll">
-            <div className="max-w-4xl mx-auto bg-qarawin-darkgray/80 backdrop-blur-sm p-8 rounded-lg border border-qarawin-red/20 shadow-xl">
+            <div id="community-form" className="max-w-4xl mx-auto bg-qarawin-darkgray/80 backdrop-blur-sm p-8 rounded-lg border border-qarawin-red/20 shadow-xl">
               <h3 className="text-2xl font-serif font-bold text-qarawin-cream mb-4">Ready to join us?</h3>
               <p className="text-qarawin-cream/90 mb-6">
                 Sign up now to become part of the first community of Moroccan scientists and deeptech entrepreneurs.
