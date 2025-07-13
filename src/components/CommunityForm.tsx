@@ -1,32 +1,35 @@
 import React from 'react';
 
-// Import your main sections (replace with your actual component names/paths)
+// Import your real sections
+import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
-import FeaturesSection from '@/components/FeaturesSection';
-import TeamSection from '@/components/TeamSection';
-// ... any other sections you have
+import PurposeSection from '@/components/PurposeSection';
+import FoundersSection from '@/components/FoundersSection';
+import AdvisorsSection from '@/components/AdvisorsSection';
+import ChaptersSection from '@/components/ChaptersSection';
+import CommunitySection from '@/components/CommunitySection';
+// If you want to use Analytics, LoginModal, ViewTracker, etc., import as needed
 
-// Import your form and footer
-import QarawinForm from '@/components/ui/form';
-import Footer from '@/components/Footer'; // if you have a Footer component
+// Import the new form and the footer
+import QarawinForm from '@/components/ui/form'; // adjust if the path is different
+import Footer from '@/components/Footer';
 
 function App() {
   return (
     <div className="bg-neutral-950 text-neutral-100 min-h-screen flex flex-col">
-      {/* Main page content */}
+      <Navbar />
       <HeroSection />
       <AboutSection />
-      <FeaturesSection />
-      <TeamSection />
-      {/* ...other sections... */}
-
+      <PurposeSection />
+      <FoundersSection />
+      <AdvisorsSection />
+      <ChaptersSection />
+      <CommunitySection />
       {/* ---- FORM AT THE BOTTOM ---- */}
       <section className="py-16 px-4 md:px-0 bg-neutral-900">
         <QarawinForm />
       </section>
-
-      {/* ---- FOOTER ---- */}
       <Footer />
     </div>
   );
