@@ -5,8 +5,8 @@ const initialState = {
   lastName: "",
   email: "",
   company: "",
-  youAre: [] as string[],       // Now an array for multi-select
-  interests: [] as string[],    // Array for multi-select
+  youAre: [] as string[],
+  interests: [] as string[],
   linkedin: "",
   location: "",
 };
@@ -34,18 +34,12 @@ export default function QarawinForm() {
   const [status, setStatus] = useState<null | "success" | "error">(null);
   const [submitting, setSubmitting] = useState(false);
 
+  // No change needed for handleChange
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    const { name, value, type, options } = e.target as HTMLSelectElement;
-    if (type === "select-multiple") {
-      const selected = Array.from(options)
-        .filter((option) => option.selected)
-        .map((option) => option.value);
-      setForm((prev) => ({ ...prev, [name]: selected }));
-    } else {
-      setForm((prev) => ({ ...prev, [name]: value }));
-    }
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -57,8 +51,8 @@ export default function QarawinForm() {
       !form.lastName ||
       !form.email ||
       !form.company ||
-      form.youAre.length === 0 ||         // At least one role
-      form.interests.length === 0 ||      // At least one interest
+      form.youAre.length === 0 ||
+      form.interests.length === 0 ||
       !form.location
     ) {
       setStatus("error");
@@ -95,7 +89,9 @@ export default function QarawinForm() {
 
   return (
     <div className="max-w-lg mx-auto p-6 bg-neutral-900 rounded-lg shadow-xl text-neutral-100">
-      <h2 className="text-2xl font-semibold mb-4 text-center">Join the Qarawin Community</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-center">
+        Join the Qarawin Community
+      </h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div className="flex flex-col md:flex-row gap-4">
           <input
@@ -135,43 +131,59 @@ export default function QarawinForm() {
           placeholder="Company"
           className="p-3 rounded bg-neutral-800 placeholder-neutral-400"
         />
+        {/* YOU ARE CHECKBOXES */}
         <div>
           <label className="block mb-1 font-semibold">You are</label>
-          <select
-            name="youAre"
-            multiple
-            value={form.youAre}
-            onChange={handleChange}
-            className="w-full p-3 rounded bg-neutral-800 text-neutral-100 h-32"
-          >
+          <div className="flex flex-wrap gap-2">
             {youAreOptions.map((opt) => (
-              <option key={opt} value={opt}>
+              <label key={opt} className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="youAre"
+                  value={opt}
+                  checked={form.youAre.includes(opt)}
+                  onChange={(e) => {
+                    const checked = e.target.checked;
+                    setForm((prev) => ({
+                      ...prev,
+                      youAre: checked
+                        ? [...prev.youAre, opt]
+                        : prev.youAre.filter((v) => v !== opt),
+                    }));
+                  }}
+                  className="accent-qarawin-red"
+                />
                 {opt}
-              </option>
+              </label>
             ))}
-          </select>
-          <small className="text-neutral-400 block mt-1">
-            Hold Ctrl (Windows) or Cmd (Mac) to select multiple.
-          </small>
+          </div>
         </div>
+        {/* INTERESTS CHECKBOXES */}
         <div>
           <label className="block mb-1 font-semibold">Your interests</label>
-          <select
-            name="interests"
-            multiple
-            value={form.interests}
-            onChange={handleChange}
-            className="w-full p-3 rounded bg-neutral-800 text-neutral-100 h-32"
-          >
+          <div className="flex flex-wrap gap-2">
             {interestOptions.map((opt) => (
-              <option key={opt} value={opt}>
+              <label key={opt} className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="interests"
+                  value={opt}
+                  checked={form.interests.includes(opt)}
+                  onChange={(e) => {
+                    const checked = e.target.checked;
+                    setForm((prev) => ({
+                      ...prev,
+                      interests: checked
+                        ? [...prev.interests, opt]
+                        : prev.interests.filter((v) => v !== opt),
+                    }));
+                  }}
+                  className="accent-qarawin-red"
+                />
                 {opt}
-              </option>
+              </label>
             ))}
-          </select>
-          <small className="text-neutral-400 block mt-1">
-            Hold Ctrl (Windows) or Cmd (Mac) to select multiple.
-          </small>
+          </div>
         </div>
         <input
           name="linkedin"
@@ -203,7 +215,9 @@ export default function QarawinForm() {
           </div>
         )}
         {status === "error" && (
-          <div className="text-red-400 text-center">Please fill in all required fields.</div>
+          <div className="text-red-400 text-center">
+            Please fill in all required fields.
+          </div>
         )}
       </form>
       <p className="text-xs text-neutral-500 mt-4 text-center">
