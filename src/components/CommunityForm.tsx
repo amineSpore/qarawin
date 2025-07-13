@@ -11,8 +11,6 @@ import ChaptersSection from '@/components/ChaptersSection';
 import CommunitySection from '@/components/CommunitySection';
 // If you want to use Analytics, LoginModal, ViewTracker, etc., import as needed
 
-// Import the new form and the footer
-import QarawinForm from '@/components/ui/form'; // adjust if the path is different
 import Footer from '@/components/Footer';
 
 function App() {
@@ -26,10 +24,6 @@ function App() {
       <AdvisorsSection />
       <ChaptersSection />
       <CommunitySection />
-      {/* ---- FORM AT THE BOTTOM ---- */}
-      <section className="py-16 px-4 md:px-0 bg-neutral-900">
-        <QarawinForm />
-      </section>
       <Footer />
     </div>
   );
