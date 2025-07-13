@@ -37,7 +37,7 @@ export default function QarawinForm() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    const { name, value, type, multiple, options } = e.target as HTMLSelectElement;
+    const { name, value, type, options } = e.target as HTMLSelectElement;
     if (type === "select-multiple") {
       const selected = Array.from(options)
         .filter((option) => option.selected)
@@ -69,7 +69,7 @@ export default function QarawinForm() {
     setStatus(null);
 
     try {
-      const response = await fetch("https://script.google.com/u/0/home/projects/1tBL3JGv1cBM062gAh28KPGzCUUo5OPH4DCRDqqigzN6YervDTUZNVrcF/edit", {
+      const response = await fetch("YOUR_WEB_APP_URL", { // <--- REPLACE THIS
         method: "POST",
         body: JSON.stringify({
           ...form,
@@ -81,6 +81,7 @@ export default function QarawinForm() {
       if (data.result === "success") {
         setStatus("success");
         setForm(initialState);
+        setTimeout(() => setStatus(null), 20000); // Hide message after 20 seconds
       } else {
         setStatus("error");
       }
@@ -184,19 +185,24 @@ export default function QarawinForm() {
           className="p-3 rounded bg-neutral-800 placeholder-neutral-400"
         />
         <button
-  type="submit"
-  disabled={submitting}
-  className="bg-neutral-700 hover:bg-neutral-600 text-white font-semibold py-3 rounded transition"
->
-  {submitting ? "Submitting..." : "Submit"}
-</button>
-{status === "success" && (
-  <div className="text-green-400 text-center font-semibold text-lg mt-4">
-    Your answers have been saved.
-  </div>
-)}
-{status === "error" && (
-  <div className="text-red-400 text-center">Please fill in all required fields.</div>
-)}
+          type="submit"
+          disabled={submitting}
+          className="bg-neutral-700 hover:bg-neutral-600 text-white font-semibold py-3 rounded transition"
+        >
+          {submitting ? "Submitting..." : "Submit"}
+        </button>
+        {status === "success" && (
+          <div className="text-green-400 text-center font-semibold text-lg mt-4">
+            Your answers have been saved.
+          </div>
+        )}
+        {status === "error" && (
+          <div className="text-red-400 text-center">Please fill in all required fields.</div>
+        )}
+      </form>
+      <p className="text-xs text-neutral-500 mt-4 text-center">
+        All fields are required except LinkedIn.
+      </p>
+    </div>
   );
 }
