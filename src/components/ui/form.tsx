@@ -108,7 +108,6 @@ export default function QarawinForm() {
             name="firstName"
             value={form.firstName}
             onChange={handleChange}
-            required
             type="text"
             placeholder="First name"
             className="flex-1 p-3 rounded bg-neutral-800 placeholder-neutral-400"
@@ -117,7 +116,6 @@ export default function QarawinForm() {
             name="lastName"
             value={form.lastName}
             onChange={handleChange}
-            required
             type="text"
             placeholder="Last name"
             className="flex-1 p-3 rounded bg-neutral-800 placeholder-neutral-400"
@@ -127,7 +125,6 @@ export default function QarawinForm() {
           name="email"
           value={form.email}
           onChange={handleChange}
-          required
           type="email"
           placeholder="Email"
           className="p-3 rounded bg-neutral-800 placeholder-neutral-400"
@@ -136,7 +133,6 @@ export default function QarawinForm() {
           name="company"
           value={form.company}
           onChange={handleChange}
-          required
           type="text"
           placeholder="Company"
           className="p-3 rounded bg-neutral-800 placeholder-neutral-400"
@@ -198,7 +194,6 @@ export default function QarawinForm() {
           name="location"
           value={form.location}
           onChange={handleChange}
-          required
           type="text"
           placeholder="Location"
           className="p-3 rounded bg-neutral-800 placeholder-neutral-400"
