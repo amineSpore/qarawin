@@ -52,7 +52,7 @@ export default function QarawinForm() {
         : prev[name].filter((v: string) => v !== opt),
     }));
   };
-
+  console.log("FORM DATA ON SUBMIT", form);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
