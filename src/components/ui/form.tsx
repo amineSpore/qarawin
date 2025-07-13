@@ -6,7 +6,7 @@ const initialState = {
   email: "",
   company: "",
   youAre: "",
-  interests: [],
+  interests: [] as string[],
   linkedin: "",
   location: "",
 };
@@ -34,12 +34,14 @@ export default function QarawinForm() {
   const [status, setStatus] = useState<null | "success" | "error">(null);
   const [submitting, setSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value, type, multiple, options } = e.target as HTMLSelectElement;
     if (type === "select-multiple") {
-      const selected = Array.from((e.target as HTMLSelectElement).selectedOptions).map(
-        (option) => option.value
-      );
+      const selected = Array.from(options)
+        .filter((option) => option.selected)
+        .map((option) => option.value);
       setForm((prev) => ({ ...prev, [name]: selected }));
     } else {
       setForm((prev) => ({ ...prev, [name]: value }));
@@ -49,14 +51,14 @@ export default function QarawinForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate required fields
+    // Manual validation for all required fields
     if (
       !form.firstName ||
       !form.lastName ||
       !form.email ||
       !form.company ||
       !form.youAre ||
-      !form.interests.length ||
+      form.interests.length === 0 ||
       !form.location
     ) {
       setStatus("error");
@@ -93,7 +95,7 @@ export default function QarawinForm() {
     <div className="max-w-lg mx-auto p-6 bg-neutral-900 rounded-lg shadow-xl text-neutral-100">
       <h2 className="text-2xl font-semibold mb-4 text-center">Join the Qarawin Community</h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <div className="flex gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <input
             name="firstName"
             value={form.firstName}
@@ -145,20 +147,25 @@ export default function QarawinForm() {
             </option>
           ))}
         </select>
-        <select
-          name="interests"
-          multiple
-          value={form.interests}
-          onChange={handleChange}
-          required
-          className="p-3 rounded bg-neutral-800 text-neutral-100 h-32"
-        >
-          {interestOptions.map((opt) => (
-            <option key={opt} value={opt}>
-              {opt}
-            </option>
-          ))}
-        </select>
+        <div>
+          <label className="block mb-1 font-semibold">Your interests</label>
+          <select
+            name="interests"
+            multiple
+            value={form.interests}
+            onChange={handleChange}
+            className="w-full p-3 rounded bg-neutral-800 text-neutral-100 h-32"
+          >
+            {interestOptions.map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            ))}
+          </select>
+          <small className="text-neutral-400 block mt-1">
+            Hold Ctrl (Windows) or Cmd (Mac) to select multiple.
+          </small>
+        </div>
         <input
           name="linkedin"
           value={form.linkedin}
@@ -177,22 +184,19 @@ export default function QarawinForm() {
           className="p-3 rounded bg-neutral-800 placeholder-neutral-400"
         />
         <button
-          type="submit"
-          disabled={submitting}
-          className="bg-neutral-700 hover:bg-neutral-600 text-white font-semibold py-3 rounded transition"
-        >
-          {submitting ? "Submitting..." : "Submit"}
-        </button>
-        {status === "success" && (
-          <div className="text-green-400 text-center">Thank you for your submission!</div>
-        )}
-        {status === "error" && (
-          <div className="text-red-400 text-center">Please fill in all required fields.</div>
-        )}
-      </form>
-      <p className="text-xs text-neutral-500 mt-4 text-center">
-        All fields are required except LinkedIn.
-      </p>
-    </div>
+  type="submit"
+  disabled={submitting}
+  className="bg-neutral-700 hover:bg-neutral-600 text-white font-semibold py-3 rounded transition"
+>
+  {submitting ? "Submitting..." : "Submit"}
+</button>
+{status === "success" && (
+  <div className="text-green-400 text-center font-semibold text-lg mt-4">
+    Your answers have been saved.
+  </div>
+)}
+{status === "error" && (
+  <div className="text-red-400 text-center">Please fill in all required fields.</div>
+)}
   );
 }
