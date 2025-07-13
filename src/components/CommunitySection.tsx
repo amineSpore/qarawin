@@ -101,35 +101,19 @@ const CommunitySection: React.FC = () => {
           </div>
           
           <div className="mt-16 text-center animate-on-scroll">
-            <div className="max-w-md mx-auto bg-qarawin-darkgray/80 backdrop-blur-sm p-8 rounded-lg border border-qarawin-red/20 shadow-xl">
+            <div className="max-w-4xl mx-auto bg-qarawin-darkgray/80 backdrop-blur-sm p-8 rounded-lg border border-qarawin-red/20 shadow-xl">
               <h3 className="text-2xl font-serif font-bold text-qarawin-cream mb-4">Ready to join us?</h3>
               <p className="text-qarawin-cream/90 mb-6">
                 Sign up now to become part of the first community of Moroccan scientists and deeptech entrepreneurs.
               </p>
-              {!isSubmitted ? (
-                <form className="space-y-4" onSubmit={handleSubmit}>
-                  <input 
-                    type="email" 
-                    placeholder="Your email address" 
-                    className="w-full p-3 border border-qarawin-red/20 bg-qarawin-black/50 text-qarawin-cream rounded-md focus:outline-none focus:ring-2 focus:ring-qarawin-red/50"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-qarawin-red hover:bg-qarawin-red/90 text-white font-medium py-6 px-4 rounded-md transition-all"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Processing..." : "Join the Community"}
-                  </Button>
-                </form>
-              ) : (
-                <div className="py-4 text-qarawin-cream border border-qarawin-red/20 rounded-md bg-qarawin-black/30">
-                  <p className="font-medium">Thank you for joining!</p>
-                  <p className="text-sm mt-2">We'll be in touch soon with next steps.</p>
-                </div>
-              )}
+              <iframe 
+                className="airtable-embed w-full" 
+                src="https://airtable.com/embed/apppsIb2CeO5bX7az/pagpguK4rclHtkMus/form" 
+                frameBorder="0" 
+                width="100%" 
+                height="533" 
+                style={{background: 'transparent', border: '1px solid #ccc'}}
+              />
             </div>
             
             <div className="mt-12 animate-on-scroll">
