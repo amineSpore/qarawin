@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AnalyticsPage from "./pages/AnalyticsPage";
-import ViewTracker from "./components/ViewTracker";
+
 
 const queryClient = new QueryClient();
 
@@ -17,7 +17,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ViewTracker />
+        
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/analytics" element={<AnalyticsPage />} />

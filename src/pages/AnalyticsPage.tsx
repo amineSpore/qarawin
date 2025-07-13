@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import Analytics from '@/components/Analytics';
+
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
@@ -75,7 +75,10 @@ const AnalyticsPage: React.FC = () => {
             </div>
           </div>
         ) : (
-          <Analytics />
+          <div className="container mx-auto px-4 py-8">
+            <h1 className="text-3xl font-bold mb-6">Analytics Dashboard</h1>
+            <p className="text-muted-foreground">Analytics data will be displayed here.</p>
+          </div>
         )}
       </div>
     </div>
