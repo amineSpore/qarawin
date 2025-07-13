@@ -5,8 +5,8 @@ const initialState = {
   lastName: "",
   email: "",
   company: "",
-  youAre: "",
-  interests: [] as string[],
+  youAre: [] as string[],       // Now an array for multi-select
+  interests: [] as string[],    // Array for multi-select
   linkedin: "",
   location: "",
 };
@@ -57,8 +57,8 @@ export default function QarawinForm() {
       !form.lastName ||
       !form.email ||
       !form.company ||
-      !form.youAre ||
-      form.interests.length === 0 ||
+      form.youAre.length === 0 ||         // At least one role
+      form.interests.length === 0 ||      // At least one interest
       !form.location
     ) {
       setStatus("error");
@@ -69,10 +69,11 @@ export default function QarawinForm() {
     setStatus(null);
 
     try {
-      const response = await fetch("YOUR_WEB_APP_URL", { // <--- REPLACE THIS
+      const response = await fetch("YOUR_WEB_APP_URL", {
         method: "POST",
         body: JSON.stringify({
           ...form,
+          youAre: form.youAre.join(", "),
           interests: form.interests.join(", "),
         }),
         headers: { "Content-Type": "application/json" },
@@ -134,20 +135,25 @@ export default function QarawinForm() {
           placeholder="Company"
           className="p-3 rounded bg-neutral-800 placeholder-neutral-400"
         />
-        <select
-          name="youAre"
-          value={form.youAre}
-          onChange={handleChange}
-          required
-          className="p-3 rounded bg-neutral-800 text-neutral-100"
-        >
-          <option value="">You are...</option>
-          {youAreOptions.map((opt) => (
-            <option key={opt} value={opt}>
-              {opt}
-            </option>
-          ))}
-        </select>
+        <div>
+          <label className="block mb-1 font-semibold">You are</label>
+          <select
+            name="youAre"
+            multiple
+            value={form.youAre}
+            onChange={handleChange}
+            className="w-full p-3 rounded bg-neutral-800 text-neutral-100 h-32"
+          >
+            {youAreOptions.map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            ))}
+          </select>
+          <small className="text-neutral-400 block mt-1">
+            Hold Ctrl (Windows) or Cmd (Mac) to select multiple.
+          </small>
+        </div>
         <div>
           <label className="block mb-1 font-semibold">Your interests</label>
           <select
