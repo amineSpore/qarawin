@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, LogIn } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
@@ -115,16 +115,8 @@ const Navbar: React.FC = () => {
               </button>
             </div>
 
-            {/* Admin button on the right */}
-            <div className="flex items-center space-x-4">
-              <Link 
-                to="/analytics"
-                className="hidden md:flex items-center text-qarawin-cream hover:text-qarawin-red transition-colors text-sm"
-              >
-                <LogIn size={16} className="mr-1" />
-                <span>Admin</span>
-              </Link>
-              
+            {/* Mobile menu button */}
+            <div className="flex items-center">
               <div className="md:hidden">
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
@@ -175,13 +167,6 @@ const Navbar: React.FC = () => {
             >
               Join Us
             </button>
-            <Link 
-              to="/analytics"
-              className="flex items-center py-3 px-2 text-qarawin-cream hover:text-qarawin-red transition-colors w-full"
-            >
-              <LogIn size={16} className="mr-2" />
-              <span>Admin Login</span>
-            </Link>
           </div>
         </div>
       </nav>
