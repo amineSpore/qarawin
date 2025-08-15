@@ -16,13 +16,21 @@ const CommunityForm: React.FC = () => {
           </p>
           
           <div className="bg-qarawin-cream/5 rounded-lg p-8 border border-qarawin-red/20">
-            <iframe
-              src="https://airtable.com/embed/app4V49wcdLMOC6zK/pagIqgQfLhkPMhpWz/form"
-              className="w-full h-96 rounded-md"
-              frameBorder="0"
-              onLoad={() => console.log('Airtable form loaded')}
+            <iframe 
+              className="airtable-embed w-full min-h-[533px] rounded-md" 
+              src="https://airtable.com/embed/appzu6j4P0kEhxuLu/paglgZw3KFAUaJcIJ/form" 
+              frameBorder="0" 
+              width="100%" 
+              height="533" 
+              style={{
+                background: 'transparent', 
+                border: '1px solid #ccc',
+                minHeight: '533px'
+              }}
+              loading="lazy"
+              title="Qarawin Community Form"
+              onLoad={() => console.log('Airtable form loaded successfully')}
               onError={() => console.error('Error loading Airtable form')}
-              title="Join Qarawin Community Form"
             />
           </div>
         </div>
