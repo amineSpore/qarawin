@@ -2,7 +2,7 @@ import React from 'react';
 
 const CommunityForm: React.FC = () => {
   return (
-    <section id="community" className="py-24 bg-qarawin-black relative">
+    <section id="community-form" className="py-24 bg-qarawin-black relative">
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg1djVIMHptMTAgMGg1djVoLTV6TTAgMTBoNXY1SDB6bTEwIDBoNXY1aC01eiIgZmlsbD0iI2NhMDAxMyIgZmlsbC1vcGFjaXR5PSIuMDUiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==')] opacity-20"></div>
       
       <div className="container mx-auto px-6 md:px-12 relative z-10">
